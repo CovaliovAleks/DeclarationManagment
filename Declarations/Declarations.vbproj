@@ -95,6 +95,36 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="UIForms\AddressForm.Designer.vb">
+      <DependentUpon>AddressForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UIForms\AddressForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UIForms\DeclarationForm.Designer.vb">
+      <DependentUpon>DeclarationForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UIForms\DeclarationForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UIForms\DeclarationsForm.Designer.vb">
+      <DependentUpon>DeclarationsForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UIForms\DeclarationsForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UIForms\PersonForm.Designer.vb">
+      <DependentUpon>PersonForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UIForms\PersonForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UIForms\PersonsForm.Designer.vb">
+      <DependentUpon>PersonsForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UIForms\PersonsForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Form1.resx">
@@ -105,6 +135,9 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UIForms\DeclarationsForm.resx">
+      <DependentUpon>DeclarationsForm.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -119,8 +152,6 @@
     </None>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="UIForms\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
