@@ -34,6 +34,11 @@ Partial Class DeclarationsForm
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.grbFilters.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.dgvDeclarations, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -41,9 +46,9 @@ Partial Class DeclarationsForm
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(12, 49)
+        Me.TextBox1.Location = New System.Drawing.Point(12, 50)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(164, 28)
+        Me.TextBox1.Size = New System.Drawing.Size(129, 28)
         Me.TextBox1.TabIndex = 0
         '
         'Label1
@@ -51,12 +56,17 @@ Partial Class DeclarationsForm
         Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(12, 24)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(64, 22)
+        Me.Label1.Size = New System.Drawing.Size(71, 22)
         Me.Label1.TabIndex = 1
-        Me.Label1.Text = "Label1"
+        Me.Label1.Text = "Дата с "
         '
         'grbFilters
         '
+        Me.grbFilters.Controls.Add(Me.Button1)
+        Me.grbFilters.Controls.Add(Me.Label3)
+        Me.grbFilters.Controls.Add(Me.TextBox3)
+        Me.grbFilters.Controls.Add(Me.Label2)
+        Me.grbFilters.Controls.Add(Me.TextBox2)
         Me.grbFilters.Controls.Add(Me.Label1)
         Me.grbFilters.Controls.Add(Me.TextBox1)
         Me.grbFilters.Dock = System.Windows.Forms.DockStyle.Top
@@ -142,6 +152,47 @@ Partial Class DeclarationsForm
         Me.Column5.Name = "Column5"
         Me.Column5.Width = 125
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(156, 25)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(30, 22)
+        Me.Label2.TabIndex = 3
+        Me.Label2.Text = "по"
+        '
+        'TextBox2
+        '
+        Me.TextBox2.Location = New System.Drawing.Point(156, 51)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(129, 28)
+        Me.TextBox2.TabIndex = 2
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(303, 24)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(110, 22)
+        Me.Label3.TabIndex = 5
+        Me.Label3.Text = "доп данные"
+        '
+        'TextBox3
+        '
+        Me.TextBox3.Location = New System.Drawing.Point(300, 50)
+        Me.TextBox3.Name = "TextBox3"
+        Me.TextBox3.Size = New System.Drawing.Size(333, 28)
+        Me.TextBox3.TabIndex = 4
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(666, 37)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(151, 41)
+        Me.Button1.TabIndex = 6
+        Me.Button1.Text = "Фильтровать"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'DeclarationsForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -173,4 +224,9 @@ Partial Class DeclarationsForm
     Friend WithEvents Column3 As DataGridViewTextBoxColumn
     Friend WithEvents Column4 As DataGridViewTextBoxColumn
     Friend WithEvents Column5 As DataGridViewTextBoxColumn
+    Friend WithEvents Button1 As Button
+    Friend WithEvents Label3 As Label
+    Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents TextBox2 As TextBox
 End Class

@@ -138,8 +138,14 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="UIForms\DeclarationForm.resx">
+      <DependentUpon>DeclarationForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UIForms\DeclarationsForm.resx">
       <DependentUpon>DeclarationsForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UIForms\PersonForm.resx">
+      <DependentUpon>PersonForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UIForms\PersonsForm.resx">
       <DependentUpon>PersonsForm.vb</DependentUpon>
