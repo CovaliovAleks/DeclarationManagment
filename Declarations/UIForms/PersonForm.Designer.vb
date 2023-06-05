@@ -137,27 +137,27 @@ Partial Class PersonForm
         Me.Label16.AutoSize = True
         Me.Label16.Location = New System.Drawing.Point(726, 146)
         Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(104, 22)
+        Me.Label16.Size = New System.Drawing.Size(116, 22)
         Me.Label16.TabIndex = 15
-        Me.Label16.Text = "Кем выдан"
+        Me.Label16.Text = "Кем выдан *"
         '
         'Label15
         '
         Me.Label15.AutoSize = True
         Me.Label15.Location = New System.Drawing.Point(726, 86)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(136, 22)
+        Me.Label15.Size = New System.Drawing.Size(148, 22)
         Me.Label15.TabIndex = 14
-        Me.Label15.Text = "Серия и номер"
+        Me.Label15.Text = "Серия и номер *"
         '
         'Label14
         '
         Me.Label14.AutoSize = True
         Me.Label14.Location = New System.Drawing.Point(716, 20)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(137, 22)
+        Me.Label14.Size = New System.Drawing.Size(149, 22)
         Me.Label14.TabIndex = 13
-        Me.Label14.Text = "Тип документа"
+        Me.Label14.Text = "Тип документа *"
         '
         'tbStreet
         '
@@ -243,9 +243,9 @@ Partial Class PersonForm
         Me.Label8.AutoSize = True
         Me.Label8.Location = New System.Drawing.Point(188, 127)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(88, 22)
+        Me.Label8.Size = New System.Drawing.Size(100, 22)
         Me.Label8.TabIndex = 8
-        Me.Label8.Text = "Фамилия"
+        Me.Label8.Text = "Фамилия *"
         '
         'tbName
         '
@@ -259,9 +259,9 @@ Partial Class PersonForm
         Me.Label4.AutoSize = True
         Me.Label4.Location = New System.Drawing.Point(188, 70)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(46, 22)
+        Me.Label4.Size = New System.Drawing.Size(58, 22)
         Me.Label4.TabIndex = 6
-        Me.Label4.Text = "Имя"
+        Me.Label4.Text = "Имя *"
         '
         'btnAddPerson
         '
@@ -325,18 +325,18 @@ Partial Class PersonForm
         Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(192, 14)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(49, 22)
+        Me.Label2.Size = New System.Drawing.Size(61, 22)
         Me.Label2.TabIndex = 20
-        Me.Label2.Text = "ИНН"
+        Me.Label2.Text = "ИНН *"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(724, 208)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(121, 22)
+        Me.Label1.Size = New System.Drawing.Size(133, 22)
         Me.Label1.TabIndex = 22
-        Me.Label1.Text = "Дата выдачи"
+        Me.Label1.Text = "Дата выдачи *"
         '
         'mtbDocIssued
         '
@@ -348,18 +348,21 @@ Partial Class PersonForm
         'mtbBornDate
         '
         Me.mtbBornDate.Location = New System.Drawing.Point(188, 280)
+        Me.mtbBornDate.Mask = "00/00/0000"
         Me.mtbBornDate.Name = "mtbBornDate"
         Me.mtbBornDate.Size = New System.Drawing.Size(289, 28)
         Me.mtbBornDate.TabIndex = 25
+        Me.mtbBornDate.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals
+        Me.mtbBornDate.ValidatingType = GetType(Date)
         '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.Location = New System.Drawing.Point(192, 253)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(142, 22)
+        Me.Label3.Size = New System.Drawing.Size(154, 22)
         Me.Label3.TabIndex = 24
-        Me.Label3.Text = "Дата рождения"
+        Me.Label3.Text = "Дата рождения *"
         '
         'tbPhone
         '

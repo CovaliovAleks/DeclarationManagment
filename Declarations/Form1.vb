@@ -21,6 +21,8 @@ Public Class Form1
         strDBFileName = "D:\WorkDocs\FreelancePrj\_WorkProjects\kwork\K.ZAV.1\Db\Database2.accdb"
         connStr = "Data Source=" & strDBFileName & ";User ID=Admin;Provider=Microsoft.ACE.OLEDB.12.0;OLE DB Services=-1"
         _dbService = New DbService(connStr)
+        '_dbService.DropTable()
+        '_dbService.CreateAllTables()
 
         personsForm = New PersonsForm()
         declarationsForm = New DeclarationsForm()

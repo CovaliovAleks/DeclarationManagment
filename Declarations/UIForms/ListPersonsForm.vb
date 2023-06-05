@@ -36,7 +36,7 @@ Public Class ListPersonsForm
 
     Private Sub btnCreateNew_Click(sender As Object, e As EventArgs) Handles btnCreateNew.Click
         If personForm Is Nothing Then
-            personForm = New PersonForm()
+            'personForm = New PersonForm()
         End If
         Dim dlgresult As DialogResult = personForm.ShowDialog()
 

@@ -1,5 +1,6 @@
 ﻿Imports System.Data.OleDb
 Imports System.Diagnostics.Eventing
+Imports System.Text
 
 Public Class DbService
 
@@ -27,7 +28,7 @@ Public Class DbService
 
     Public Sub DropTable()
         Dim result As Boolean = False
-        Dim strCreate As String = "DROP TABLE testone;"
+        Dim strCreate As String = "DROP TABLE Person;"
 
         Try
             dbConn = New OleDb.OleDbConnection(dbConnString)
@@ -143,9 +144,10 @@ Public Class DbService
     End Function
 
     Public Sub CreateAllTables()
-        Dim qr As String = "CREATE TABLE Person(ID COUNTER, FirstName Varchar(100), LastName Varchar(100), Patronymic Varchar(100),born DATETIME, 
-				Phone Varchar(100), TypeDocument Varchar(50), SeriaNumber Varchar(50), DocIssueDate DATETIME,
-				WasIssued Varchar(100), Region Varchar(200), City Varchar(100), Street Varchar(200),
+        Dim qr As String = "CREATE TABLE Person(ID COUNTER, INN Varchar(13), FirstName Varchar(50), LastName Varchar(50), Patronymic Varchar(50),born DATETIME, 
+				Photo IMAGE, Phone Varchar(100), 
+				Region Varchar(200), City Varchar(100), Street Varchar(200),
+				TypeDocument Varchar(50), SeriaNumber Varchar(50), IssuedBy Varchar(100), DocIssueDate DATETIME,
 				CONSTRAINT [PrimaryKey] PRIMARY KEY ([ID]));"
 
         'Create table Person
@@ -197,6 +199,57 @@ Public Class DbService
     End Function
 
     Function AddNewPerson(ByRef person As Person) As Person
+        Dim query As String
+
+        'Dim sb = New StringBuilder("INSERT INTO person(INN,FirstName,LastName, Patronymic")
+        'If person.BornDate IsNot Nothing Then
+        'End If
+        '    query = "INSERT INTO person(INN,FirstName,LastName, Patronymic,born, Photo, Phone, 
+        'Region, City, Street, TypeDocument, SeriaNumber, IssuedBy, DocIssueDate)
+        '            VALUES(@inn, @first, @last, patronymic, @born,@photo, @phone);"
+        '   query = "INSERT INTO person(INN,FirstName,LastName, Patronymic,Phone, Region, City, Street,  
+        'TypeDocument, SeriaNumber, IssuedBy, born, Photo,DocIssueDate)
+        '           VALUES(@inn, @first, @last, patronymic, @born,@photo, @phone);"
+
+
+        query = "INSERT INTO person(INN,FirstName,LastName, Patronymic,Phone, Region, City, Street,  
+				 TypeDocument, SeriaNumber, IssuedBy)
+                VALUES(@inn, @first, @last, @patronymic, @phone, @region, @city, @street, @typDoc,
+                        @ser, @issby);"
+
+        Try
+            dbConn = New OleDb.OleDbConnection(dbConnString)
+            dbConn.Open()
+
+            Using cmd As New OleDbCommand()
+                cmd.Connection = dbConn
+                cmd.CommandType = CommandType.Text
+                cmd.CommandText = query
+                Try
+                    cmd.Parameters.AddWithValue("@inn", person.INN)
+                    cmd.Parameters.AddWithValue("@first", person.FirstName)
+                    cmd.Parameters.AddWithValue("@last", person.SurName)
+                    cmd.Parameters.AddWithValue("@patronymic", person.Patronymic)
+                    cmd.Parameters.AddWithValue("@phone", person.Phone)
+                    cmd.Parameters.AddWithValue("@region", person.Region)
+                    cmd.Parameters.AddWithValue("@city", person.City)
+                    cmd.Parameters.AddWithValue("@street", person.Street)
+                    cmd.Parameters.AddWithValue("@typDoc", person.TypeDoc)
+                    cmd.Parameters.AddWithValue("@ser", person.SeriaNumber)
+                    cmd.Parameters.AddWithValue("@issby", person.IssuedBy)
+
+                    cmd.ExecuteNonQuery()
+                    Console.WriteLine("Table created.")
+                Catch ex As Exception
+                    Console.WriteLine(ex.Message)
+                End Try
+            End Using
+
+        Catch ex As Exception
+            Dim msg As String = ex.Message
+        Finally
+            dbConn.Close()
+        End Try
 
 
 

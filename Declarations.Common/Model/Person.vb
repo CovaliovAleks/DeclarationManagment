@@ -9,6 +9,7 @@ Public Class Person
     Private _patronimyc As String
     Private _bornDate As Date
     Private _photo As Image
+    Private _phone As String
 
     Private _region As String
     Private _city As String
@@ -80,6 +81,80 @@ Public Class Person
         End Get
         Set(value As Image)
             _photo = value
+        End Set
+    End Property
+
+    Public Property Phone() As String
+        Get
+            Return _phone
+        End Get
+        Set(value As String)
+            _phone = value
+        End Set
+    End Property
+
+    'Address
+    Public Property Region() As String
+        Get
+            Return _region
+        End Get
+        Set(value As String)
+            _region = value
+        End Set
+    End Property
+
+    Public Property City() As String
+        Get
+            Return _city
+        End Get
+        Set(value As String)
+            _city = value
+        End Set
+    End Property
+
+    Public Property Street() As String
+        Get
+            Return _street
+        End Get
+        Set(value As String)
+            _street = value
+        End Set
+    End Property
+
+    'Document
+    Public Property TypeDoc() As String
+        Get
+            Return _typeDoc
+        End Get
+        Set(value As String)
+            _typeDoc = value
+        End Set
+    End Property
+
+    Public Property SeriaNumber() As String
+        Get
+            Return _seriaNumber
+        End Get
+        Set(value As String)
+            _seriaNumber = value
+        End Set
+    End Property
+
+    Public Property IssuedBy() As String
+        Get
+            Return _issuedBy
+        End Get
+        Set(value As String)
+            _issuedBy = value
+        End Set
+    End Property
+
+    Public Property IssueDate() As Date
+        Get
+            Return _issueDate
+        End Get
+        Set(value As Date)
+            _issueDate = value
         End Set
     End Property
 
