@@ -18,12 +18,14 @@ Public Class Form1
         ' This call is required by the designer.
         InitializeComponent()
 
-        personsForm = New PersonsForm()
-        declarationsForm = New DeclarationsForm()
-        personForm = New PersonForm()
-        declarationForm = New DeclarationForm()
         strDBFileName = "D:\WorkDocs\FreelancePrj\_WorkProjects\kwork\K.ZAV.1\Db\Database2.accdb"
         connStr = "Data Source=" & strDBFileName & ";User ID=Admin;Provider=Microsoft.ACE.OLEDB.12.0;OLE DB Services=-1"
+        _dbService = New DbService(connStr)
+
+        personsForm = New PersonsForm()
+        declarationsForm = New DeclarationsForm()
+        personForm = New PersonForm(_dbService)
+        declarationForm = New DeclarationForm(_dbService)
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -38,9 +40,8 @@ Public Class Form1
 
         LoadForm(form)
 
-        _dbService = New DbService(connStr)
-        _dbService.CheckDbTables()
-
+        '_dbService = New DbService(connStr)
+        '_dbService.CreateAllTables()
 
     End Sub
 
@@ -87,7 +88,7 @@ Public Class Form1
         If activForm <> ActiveFormEnum.AddPerson Then
             activForm = ActiveFormEnum.AddPerson
             If personForm Is Nothing Then
-                personForm = New PersonForm()
+                personForm = New PersonForm(_dbService)
             End If
             LoadForm(personForm)
         End If
@@ -97,7 +98,7 @@ Public Class Form1
         If activForm <> ActiveFormEnum.AddDeclaration Then
             activForm = ActiveFormEnum.AddDeclaration
             If declarationForm Is Nothing Then
-                declarationForm = New DeclarationForm()
+                declarationForm = New DeclarationForm(_dbService)
             End If
             LoadForm(declarationForm)
         End If

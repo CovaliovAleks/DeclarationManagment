@@ -23,6 +23,7 @@ Partial Class DeclarationForm
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.mtbDateDeclaration = New System.Windows.Forms.MaskedTextBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
@@ -37,7 +38,6 @@ Partial Class DeclarationForm
         Me.tbPerson = New System.Windows.Forms.TextBox()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.tbDateDeclaration = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.tbNrDeclaration = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -61,9 +61,8 @@ Partial Class DeclarationForm
         Me.TextBox4 = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-        Me.btnAddDeclaration = New System.Windows.Forms.Button()
         Me.btnCancel = New System.Windows.Forms.Button()
-        Me.mtbDateDeclaration = New System.Windows.Forms.MaskedTextBox()
+        Me.btnAddDeclaration = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -99,6 +98,15 @@ Partial Class DeclarationForm
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Данные налоговой декларации"
+        '
+        'mtbDateDeclaration
+        '
+        Me.mtbDateDeclaration.Location = New System.Drawing.Point(195, 68)
+        Me.mtbDateDeclaration.Mask = "00/00/0000"
+        Me.mtbDateDeclaration.Name = "mtbDateDeclaration"
+        Me.mtbDateDeclaration.Size = New System.Drawing.Size(232, 28)
+        Me.mtbDateDeclaration.TabIndex = 17
+        Me.mtbDateDeclaration.ValidatingType = GetType(Date)
         '
         'Label9
         '
@@ -216,13 +224,6 @@ Partial Class DeclarationForm
         Me.Label3.Size = New System.Drawing.Size(94, 22)
         Me.Label3.TabIndex = 4
         Me.Label3.Text = "Сумма до"
-        '
-        'tbDateDeclaration
-        '
-        Me.tbDateDeclaration.Location = New System.Drawing.Point(281, 493)
-        Me.tbDateDeclaration.Name = "tbDateDeclaration"
-        Me.tbDateDeclaration.Size = New System.Drawing.Size(267, 22)
-        Me.tbDateDeclaration.TabIndex = 3
         '
         'Label2
         '
@@ -438,16 +439,6 @@ Partial Class DeclarationForm
         Me.GroupBox4.TabIndex = 2
         Me.GroupBox4.TabStop = False
         '
-        'btnAddDeclaration
-        '
-        Me.btnAddDeclaration.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAddDeclaration.Location = New System.Drawing.Point(16, 33)
-        Me.btnAddDeclaration.Name = "btnAddDeclaration"
-        Me.btnAddDeclaration.Size = New System.Drawing.Size(157, 55)
-        Me.btnAddDeclaration.TabIndex = 0
-        Me.btnAddDeclaration.Text = "Add declaration"
-        Me.btnAddDeclaration.UseVisualStyleBackColor = True
-        '
         'btnCancel
         '
         Me.btnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -458,14 +449,15 @@ Partial Class DeclarationForm
         Me.btnCancel.Text = "Cancel"
         Me.btnCancel.UseVisualStyleBackColor = True
         '
-        'mtbDateDeclaration
+        'btnAddDeclaration
         '
-        Me.mtbDateDeclaration.Location = New System.Drawing.Point(195, 68)
-        Me.mtbDateDeclaration.Mask = "00/00/0000"
-        Me.mtbDateDeclaration.Name = "mtbDateDeclaration"
-        Me.mtbDateDeclaration.Size = New System.Drawing.Size(232, 28)
-        Me.mtbDateDeclaration.TabIndex = 17
-        Me.mtbDateDeclaration.ValidatingType = GetType(Date)
+        Me.btnAddDeclaration.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAddDeclaration.Location = New System.Drawing.Point(16, 33)
+        Me.btnAddDeclaration.Name = "btnAddDeclaration"
+        Me.btnAddDeclaration.Size = New System.Drawing.Size(157, 55)
+        Me.btnAddDeclaration.TabIndex = 0
+        Me.btnAddDeclaration.Text = "Add declaration"
+        Me.btnAddDeclaration.UseVisualStyleBackColor = True
         '
         'DeclarationForm
         '
@@ -475,7 +467,6 @@ Partial Class DeclarationForm
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.tbDateDeclaration)
         Me.Name = "DeclarationForm"
         Me.Text = "DeclarationForm"
         Me.GroupBox1.ResumeLayout(False)
@@ -486,14 +477,12 @@ Partial Class DeclarationForm
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox4.ResumeLayout(False)
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents TextBox3 As TextBox
     Friend WithEvents Label3 As Label
-    Friend WithEvents tbDateDeclaration As TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents tbNrDeclaration As TextBox
     Friend WithEvents Label1 As Label

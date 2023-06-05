@@ -29,22 +29,33 @@ Partial Class PersonForm
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
-        Me.TextBox10 = New System.Windows.Forms.TextBox()
+        Me.tbStreet = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.pbPhoto = New System.Windows.Forms.PictureBox()
-        Me.TextBox11 = New System.Windows.Forms.TextBox()
-        Me.TextBox9 = New System.Windows.Forms.TextBox()
+        Me.tbCity = New System.Windows.Forms.TextBox()
+        Me.tbPatronimyc = New System.Windows.Forms.TextBox()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.TextBox8 = New System.Windows.Forms.TextBox()
-        Me.TextBox12 = New System.Windows.Forms.TextBox()
+        Me.tbSurname = New System.Windows.Forms.TextBox()
+        Me.tbRegion = New System.Windows.Forms.TextBox()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.tbName = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.btnAddDeclaration = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.btnAddPerson = New System.Windows.Forms.Button()
+        Me.btnCancel = New System.Windows.Forms.Button()
+        Me.btnSelectImage = New System.Windows.Forms.Button()
+        Me.tbTypeDoc = New System.Windows.Forms.TextBox()
+        Me.tbSeriaNum = New System.Windows.Forms.TextBox()
+        Me.tbIssued = New System.Windows.Forms.TextBox()
+        Me.tbInn = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.mtbDocIssued = New System.Windows.Forms.MaskedTextBox()
+        Me.mtbBornDate = New System.Windows.Forms.MaskedTextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.tbPhone = New System.Windows.Forms.TextBox()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -53,12 +64,12 @@ Partial Class PersonForm
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.Button1)
-        Me.GroupBox1.Controls.Add(Me.btnAddDeclaration)
+        Me.GroupBox1.Controls.Add(Me.btnCancel)
+        Me.GroupBox1.Controls.Add(Me.btnAddPerson)
         Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.GroupBox1.Location = New System.Drawing.Point(0, 371)
+        Me.GroupBox1.Location = New System.Drawing.Point(0, 344)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(1050, 82)
+        Me.GroupBox1.Size = New System.Drawing.Size(955, 82)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         '
@@ -70,7 +81,7 @@ Partial Class PersonForm
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox2.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(1050, 371)
+        Me.GroupBox2.Size = New System.Drawing.Size(955, 344)
         Me.GroupBox2.TabIndex = 2
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Данные физ лица                   "
@@ -78,42 +89,53 @@ Partial Class PersonForm
         'GroupBox5
         '
         Me.GroupBox5.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox5.Location = New System.Drawing.Point(3, 260)
+        Me.GroupBox5.Location = New System.Drawing.Point(3, 338)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(1044, 108)
+        Me.GroupBox5.Size = New System.Drawing.Size(949, 3)
         Me.GroupBox5.TabIndex = 2
         Me.GroupBox5.TabStop = False
         '
         'GroupBox3
         '
-        Me.GroupBox3.Controls.Add(Me.Button2)
+        Me.GroupBox3.Controls.Add(Me.tbPhone)
+        Me.GroupBox3.Controls.Add(Me.Label5)
+        Me.GroupBox3.Controls.Add(Me.mtbBornDate)
+        Me.GroupBox3.Controls.Add(Me.Label3)
+        Me.GroupBox3.Controls.Add(Me.mtbDocIssued)
+        Me.GroupBox3.Controls.Add(Me.Label1)
+        Me.GroupBox3.Controls.Add(Me.tbInn)
+        Me.GroupBox3.Controls.Add(Me.Label2)
+        Me.GroupBox3.Controls.Add(Me.tbIssued)
+        Me.GroupBox3.Controls.Add(Me.tbSeriaNum)
+        Me.GroupBox3.Controls.Add(Me.tbTypeDoc)
+        Me.GroupBox3.Controls.Add(Me.btnSelectImage)
         Me.GroupBox3.Controls.Add(Me.Label16)
         Me.GroupBox3.Controls.Add(Me.Label15)
         Me.GroupBox3.Controls.Add(Me.Label14)
-        Me.GroupBox3.Controls.Add(Me.TextBox10)
+        Me.GroupBox3.Controls.Add(Me.tbStreet)
         Me.GroupBox3.Controls.Add(Me.Label11)
         Me.GroupBox3.Controls.Add(Me.pbPhoto)
-        Me.GroupBox3.Controls.Add(Me.TextBox11)
-        Me.GroupBox3.Controls.Add(Me.TextBox9)
+        Me.GroupBox3.Controls.Add(Me.tbCity)
+        Me.GroupBox3.Controls.Add(Me.tbPatronimyc)
         Me.GroupBox3.Controls.Add(Me.Label12)
         Me.GroupBox3.Controls.Add(Me.Label10)
-        Me.GroupBox3.Controls.Add(Me.TextBox8)
-        Me.GroupBox3.Controls.Add(Me.TextBox12)
+        Me.GroupBox3.Controls.Add(Me.tbSurname)
+        Me.GroupBox3.Controls.Add(Me.tbRegion)
         Me.GroupBox3.Controls.Add(Me.Label13)
         Me.GroupBox3.Controls.Add(Me.Label8)
-        Me.GroupBox3.Controls.Add(Me.TextBox4)
+        Me.GroupBox3.Controls.Add(Me.tbName)
         Me.GroupBox3.Controls.Add(Me.Label4)
         Me.GroupBox3.Dock = System.Windows.Forms.DockStyle.Top
         Me.GroupBox3.Location = New System.Drawing.Point(3, 24)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(1044, 236)
+        Me.GroupBox3.Size = New System.Drawing.Size(949, 314)
         Me.GroupBox3.TabIndex = 0
         Me.GroupBox3.TabStop = False
         '
         'Label16
         '
         Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(804, 142)
+        Me.Label16.Location = New System.Drawing.Point(726, 146)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(104, 22)
         Me.Label16.TabIndex = 15
@@ -122,7 +144,7 @@ Partial Class PersonForm
         'Label15
         '
         Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(804, 83)
+        Me.Label15.Location = New System.Drawing.Point(726, 86)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(136, 22)
         Me.Label15.TabIndex = 14
@@ -131,54 +153,54 @@ Partial Class PersonForm
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(804, 24)
+        Me.Label14.Location = New System.Drawing.Point(716, 20)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(137, 22)
         Me.Label14.TabIndex = 13
         Me.Label14.Text = "Тип документа"
         '
-        'TextBox10
+        'tbStreet
         '
-        Me.TextBox10.Location = New System.Drawing.Point(572, 170)
-        Me.TextBox10.Name = "TextBox10"
-        Me.TextBox10.Size = New System.Drawing.Size(190, 28)
-        Me.TextBox10.TabIndex = 11
+        Me.tbStreet.Location = New System.Drawing.Point(505, 173)
+        Me.tbStreet.Name = "tbStreet"
+        Me.tbStreet.Size = New System.Drawing.Size(190, 28)
+        Me.tbStreet.TabIndex = 11
         '
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(572, 143)
+        Me.Label11.Location = New System.Drawing.Point(507, 146)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(134, 22)
+        Me.Label11.Size = New System.Drawing.Size(136, 22)
         Me.Label11.TabIndex = 10
-        Me.Label11.Text = "Ултца, дом, кв"
+        Me.Label11.Text = "Улица, дом, кв"
         '
         'pbPhoto
         '
-        Me.pbPhoto.Location = New System.Drawing.Point(13, 34)
+        Me.pbPhoto.Location = New System.Drawing.Point(13, 58)
         Me.pbPhoto.Name = "pbPhoto"
         Me.pbPhoto.Size = New System.Drawing.Size(156, 149)
         Me.pbPhoto.TabIndex = 12
         Me.pbPhoto.TabStop = False
         '
-        'TextBox11
+        'tbCity
         '
-        Me.TextBox11.Location = New System.Drawing.Point(568, 109)
-        Me.TextBox11.Name = "TextBox11"
-        Me.TextBox11.Size = New System.Drawing.Size(190, 28)
-        Me.TextBox11.TabIndex = 9
+        Me.tbCity.Location = New System.Drawing.Point(503, 112)
+        Me.tbCity.Name = "tbCity"
+        Me.tbCity.Size = New System.Drawing.Size(190, 28)
+        Me.tbCity.TabIndex = 9
         '
-        'TextBox9
+        'tbPatronimyc
         '
-        Me.TextBox9.Location = New System.Drawing.Point(188, 168)
-        Me.TextBox9.Name = "TextBox9"
-        Me.TextBox9.Size = New System.Drawing.Size(357, 28)
-        Me.TextBox9.TabIndex = 11
+        Me.tbPatronimyc.Location = New System.Drawing.Point(188, 218)
+        Me.tbPatronimyc.Name = "tbPatronimyc"
+        Me.tbPatronimyc.Size = New System.Drawing.Size(289, 28)
+        Me.tbPatronimyc.TabIndex = 11
         '
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(568, 83)
+        Me.Label12.Location = New System.Drawing.Point(503, 86)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(166, 22)
         Me.Label12.TabIndex = 8
@@ -187,30 +209,30 @@ Partial Class PersonForm
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(188, 142)
+        Me.Label10.Location = New System.Drawing.Point(188, 192)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(89, 22)
         Me.Label10.TabIndex = 10
         Me.Label10.Text = "Отчество"
         '
-        'TextBox8
+        'tbSurname
         '
-        Me.TextBox8.Location = New System.Drawing.Point(188, 99)
-        Me.TextBox8.Name = "TextBox8"
-        Me.TextBox8.Size = New System.Drawing.Size(357, 28)
-        Me.TextBox8.TabIndex = 9
+        Me.tbSurname.Location = New System.Drawing.Point(188, 153)
+        Me.tbSurname.Name = "tbSurname"
+        Me.tbSurname.Size = New System.Drawing.Size(289, 28)
+        Me.tbSurname.TabIndex = 9
         '
-        'TextBox12
+        'tbRegion
         '
-        Me.TextBox12.Location = New System.Drawing.Point(569, 45)
-        Me.TextBox12.Name = "TextBox12"
-        Me.TextBox12.Size = New System.Drawing.Size(190, 28)
-        Me.TextBox12.TabIndex = 7
+        Me.tbRegion.Location = New System.Drawing.Point(504, 48)
+        Me.tbRegion.Name = "tbRegion"
+        Me.tbRegion.Size = New System.Drawing.Size(190, 28)
+        Me.tbRegion.TabIndex = 7
         '
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(569, 19)
+        Me.Label13.Location = New System.Drawing.Point(503, 11)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(69, 22)
         Me.Label13.TabIndex = 6
@@ -219,62 +241,147 @@ Partial Class PersonForm
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(188, 73)
+        Me.Label8.Location = New System.Drawing.Point(188, 127)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(88, 22)
         Me.Label8.TabIndex = 8
         Me.Label8.Text = "Фамилия"
         '
-        'TextBox4
+        'tbName
         '
-        Me.TextBox4.Location = New System.Drawing.Point(188, 41)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(357, 28)
-        Me.TextBox4.TabIndex = 7
+        Me.tbName.Location = New System.Drawing.Point(188, 95)
+        Me.tbName.Name = "tbName"
+        Me.tbName.Size = New System.Drawing.Size(289, 28)
+        Me.tbName.TabIndex = 7
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(188, 16)
+        Me.Label4.Location = New System.Drawing.Point(188, 70)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(46, 22)
         Me.Label4.TabIndex = 6
         Me.Label4.Text = "Имя"
         '
-        'btnAddDeclaration
+        'btnAddPerson
         '
-        Me.btnAddDeclaration.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAddDeclaration.Location = New System.Drawing.Point(6, 15)
-        Me.btnAddDeclaration.Name = "btnAddDeclaration"
-        Me.btnAddDeclaration.Size = New System.Drawing.Size(157, 55)
-        Me.btnAddDeclaration.TabIndex = 1
-        Me.btnAddDeclaration.Text = "Add person"
-        Me.btnAddDeclaration.UseVisualStyleBackColor = True
+        Me.btnAddPerson.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAddPerson.Location = New System.Drawing.Point(6, 15)
+        Me.btnAddPerson.Name = "btnAddPerson"
+        Me.btnAddPerson.Size = New System.Drawing.Size(157, 55)
+        Me.btnAddPerson.TabIndex = 1
+        Me.btnAddPerson.Text = "Add person"
+        Me.btnAddPerson.UseVisualStyleBackColor = True
         '
-        'Button1
+        'btnCancel
         '
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(881, 15)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(157, 55)
-        Me.Button1.TabIndex = 2
-        Me.Button1.Text = "Cancel"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCancel.Location = New System.Drawing.Point(786, 15)
+        Me.btnCancel.Name = "btnCancel"
+        Me.btnCancel.Size = New System.Drawing.Size(157, 55)
+        Me.btnCancel.TabIndex = 2
+        Me.btnCancel.Text = "Cancel"
+        Me.btnCancel.UseVisualStyleBackColor = True
         '
-        'Button2
+        'btnSelectImage
         '
-        Me.Button2.Location = New System.Drawing.Point(13, 189)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(156, 41)
-        Me.Button2.TabIndex = 16
-        Me.Button2.Text = "..."
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.btnSelectImage.Location = New System.Drawing.Point(13, 213)
+        Me.btnSelectImage.Name = "btnSelectImage"
+        Me.btnSelectImage.Size = New System.Drawing.Size(156, 41)
+        Me.btnSelectImage.TabIndex = 16
+        Me.btnSelectImage.Text = "..."
+        Me.btnSelectImage.UseVisualStyleBackColor = True
+        '
+        'tbTypeDoc
+        '
+        Me.tbTypeDoc.Location = New System.Drawing.Point(718, 48)
+        Me.tbTypeDoc.Name = "tbTypeDoc"
+        Me.tbTypeDoc.Size = New System.Drawing.Size(222, 28)
+        Me.tbTypeDoc.TabIndex = 17
+        '
+        'tbSeriaNum
+        '
+        Me.tbSeriaNum.Location = New System.Drawing.Point(718, 112)
+        Me.tbSeriaNum.Name = "tbSeriaNum"
+        Me.tbSeriaNum.Size = New System.Drawing.Size(222, 28)
+        Me.tbSeriaNum.TabIndex = 18
+        '
+        'tbIssued
+        '
+        Me.tbIssued.Location = New System.Drawing.Point(718, 173)
+        Me.tbIssued.Name = "tbIssued"
+        Me.tbIssued.Size = New System.Drawing.Size(222, 28)
+        Me.tbIssued.TabIndex = 19
+        '
+        'tbInn
+        '
+        Me.tbInn.Location = New System.Drawing.Point(192, 39)
+        Me.tbInn.Name = "tbInn"
+        Me.tbInn.Size = New System.Drawing.Size(289, 28)
+        Me.tbInn.TabIndex = 21
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(192, 14)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(49, 22)
+        Me.Label2.TabIndex = 20
+        Me.Label2.Text = "ИНН"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(724, 208)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(121, 22)
+        Me.Label1.TabIndex = 22
+        Me.Label1.Text = "Дата выдачи"
+        '
+        'mtbDocIssued
+        '
+        Me.mtbDocIssued.Location = New System.Drawing.Point(720, 237)
+        Me.mtbDocIssued.Name = "mtbDocIssued"
+        Me.mtbDocIssued.Size = New System.Drawing.Size(220, 28)
+        Me.mtbDocIssued.TabIndex = 23
+        '
+        'mtbBornDate
+        '
+        Me.mtbBornDate.Location = New System.Drawing.Point(188, 280)
+        Me.mtbBornDate.Name = "mtbBornDate"
+        Me.mtbBornDate.Size = New System.Drawing.Size(289, 28)
+        Me.mtbBornDate.TabIndex = 25
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(192, 253)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(142, 22)
+        Me.Label3.TabIndex = 24
+        Me.Label3.Text = "Дата рождения"
+        '
+        'tbPhone
+        '
+        Me.tbPhone.Location = New System.Drawing.Point(503, 280)
+        Me.tbPhone.Name = "tbPhone"
+        Me.tbPhone.Size = New System.Drawing.Size(190, 28)
+        Me.tbPhone.TabIndex = 27
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(505, 253)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(86, 22)
+        Me.Label5.TabIndex = 26
+        Me.Label5.Text = "Телефон"
         '
         'PersonForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1050, 453)
+        Me.ClientSize = New System.Drawing.Size(955, 426)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "PersonForm"
@@ -295,20 +402,31 @@ Partial Class PersonForm
     Friend WithEvents Label16 As Label
     Friend WithEvents Label15 As Label
     Friend WithEvents Label14 As Label
-    Friend WithEvents TextBox10 As TextBox
+    Friend WithEvents tbStreet As TextBox
     Friend WithEvents Label11 As Label
     Friend WithEvents pbPhoto As PictureBox
-    Friend WithEvents TextBox11 As TextBox
-    Friend WithEvents TextBox9 As TextBox
+    Friend WithEvents tbCity As TextBox
+    Friend WithEvents tbPatronimyc As TextBox
     Friend WithEvents Label12 As Label
     Friend WithEvents Label10 As Label
-    Friend WithEvents TextBox8 As TextBox
-    Friend WithEvents TextBox12 As TextBox
+    Friend WithEvents tbSurname As TextBox
+    Friend WithEvents tbRegion As TextBox
     Friend WithEvents Label13 As Label
     Friend WithEvents Label8 As Label
-    Friend WithEvents TextBox4 As TextBox
+    Friend WithEvents tbName As TextBox
     Friend WithEvents Label4 As Label
-    Friend WithEvents btnAddDeclaration As Button
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
+    Friend WithEvents btnAddPerson As Button
+    Friend WithEvents btnCancel As Button
+    Friend WithEvents btnSelectImage As Button
+    Friend WithEvents tbIssued As TextBox
+    Friend WithEvents tbSeriaNum As TextBox
+    Friend WithEvents tbTypeDoc As TextBox
+    Friend WithEvents tbInn As TextBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents mtbBornDate As MaskedTextBox
+    Friend WithEvents Label3 As Label
+    Friend WithEvents mtbDocIssued As MaskedTextBox
+    Friend WithEvents Label1 As Label
+    Friend WithEvents tbPhone As TextBox
+    Friend WithEvents Label5 As Label
 End Class

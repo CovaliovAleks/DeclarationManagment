@@ -4,12 +4,13 @@ Public Class DeclarationForm
     Private declaration As Declaration
 
     Private listPersons As ListPersonsForm
+    Dim _dbService As DbService
 
-
-    Public Sub New()
+    Public Sub New(ByRef dbService As DbService)
         ' This call is required by the designer.
         InitializeComponent()
 
+        _dbService = dbService
         declaration = New Declaration()
 
     End Sub
