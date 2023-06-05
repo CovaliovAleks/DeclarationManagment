@@ -1,4 +1,6 @@
-﻿Public Class Form1
+﻿Imports Declarations.Common
+
+Public Class Form1
 
     Dim declarationsForm As DeclarationsForm
     Dim personsForm As PersonsForm
@@ -7,6 +9,9 @@
 
     Dim form As Form
 
+    Dim connStr As String
+    Dim strDBFileName As String
+    Dim _dbService As DbService
     Dim activForm As ActiveFormEnum = ActiveFormEnum.NotSelected
 
     Public Sub New()
@@ -17,12 +22,8 @@
         declarationsForm = New DeclarationsForm()
         personForm = New PersonForm()
         declarationForm = New DeclarationForm()
-
-    End Sub
-    Private Sub pnlForms_Paint(sender As Object, e As PaintEventArgs) Handles pnlDesktop.Paint
-
-
-
+        strDBFileName = "D:\WorkDocs\FreelancePrj\_WorkProjects\kwork\K.ZAV.1\Db\Database2.accdb"
+        connStr = "Data Source=" & strDBFileName & ";User ID=Admin;Provider=Microsoft.ACE.OLEDB.12.0;OLE DB Services=-1"
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -36,6 +37,10 @@
         End If
 
         LoadForm(form)
+
+        _dbService = New DbService(connStr)
+        _dbService.CheckDbTables()
+
 
     End Sub
 

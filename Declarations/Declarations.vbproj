@@ -97,10 +97,22 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="UIForms\AddCompanyForm.Designer.vb">
+      <DependentUpon>AddCompanyForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UIForms\AddCompanyForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="UIForms\AddressForm.Designer.vb">
       <DependentUpon>AddressForm.vb</DependentUpon>
     </Compile>
     <Compile Include="UIForms\AddressForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UIForms\CompaniesForm.Designer.vb">
+      <DependentUpon>CompaniesForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UIForms\CompaniesForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UIForms\DeclarationForm.Designer.vb">
@@ -113,6 +125,12 @@
       <DependentUpon>DeclarationsForm.vb</DependentUpon>
     </Compile>
     <Compile Include="UIForms\DeclarationsForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UIForms\ListPersonsForm.Designer.vb">
+      <DependentUpon>ListPersonsForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UIForms\ListPersonsForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UIForms\PersonForm.Designer.vb">
@@ -144,6 +162,9 @@
     <EmbeddedResource Include="UIForms\DeclarationsForm.resx">
       <DependentUpon>DeclarationsForm.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UIForms\ListPersonsForm.resx">
+      <DependentUpon>ListPersonsForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UIForms\PersonForm.resx">
       <DependentUpon>PersonForm.vb</DependentUpon>
     </EmbeddedResource>
@@ -163,6 +184,15 @@
     </None>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Declarations.Common\Declarations.Common.vbproj">
+      <Project>{33b1a377-bba2-41fa-b4be-713cb3c2ae11}</Project>
+      <Name>Declarations.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Declarations.Infrastructure\Declarations.Infrastructure.vbproj">
+      <Project>{79882211-8868-4695-b351-f00608dda991}</Project>
+      <Name>Declarations.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
