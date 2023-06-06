@@ -6,7 +6,7 @@
     Private _taxDistrict As String
     Private _Comment As String
 
-    Private _personId As String
+    Private _personId As Integer
     Private _personFio As String
 
     Private _sumaAll As Double
@@ -15,6 +15,12 @@
     Private _exempt As Double
     Private _sumaFinal As Double
     Private _exmeptType As String
+
+    Private _companyName As String
+    Private _companyInn As String
+    Private _companyAddress As String
+    Private _companyPhone As String
+    Private _companyChief As String
 
     Private Person As Person
 
@@ -42,7 +48,6 @@
             _DateCreatedAt = value
         End Set
     End Property
-
     Public Property TaxNumber() As String
         Get
             Return _taxNumber
@@ -51,7 +56,6 @@
             _taxNumber = value
         End Set
     End Property
-
     Public Property TaxDistrict() As String
         Get
             Return _taxDistrict
@@ -60,7 +64,6 @@
             _taxDistrict = value
         End Set
     End Property
-
     Public Property Comment() As String
         Get
             Return _Comment
@@ -69,7 +72,6 @@
             _Comment = value
         End Set
     End Property
-
     Public Property PersonFio() As String
         Get
             Return _personFio
@@ -78,7 +80,6 @@
             _personFio = value
         End Set
     End Property
-
     Public Property PersonId() As Integer
         Get
             Return _personId
@@ -87,7 +88,6 @@
             _personId = value
         End Set
     End Property
-
     Public Property SummaAll() As Double
         Get
             Return _sumaAll
@@ -96,7 +96,6 @@
             _sumaAll = value
         End Set
     End Property
-
     Public Property SummaTax() As Double
         Get
             Return _sumaTax
@@ -105,7 +104,6 @@
             _sumaTax = value
         End Set
     End Property
-
     Public Property SummaPens() As Double
         Get
             Return _sumaPens
@@ -114,7 +112,6 @@
             _sumaPens = value
         End Set
     End Property
-
     Public Property SummaExempt() As Double
         Get
             Return _exempt
@@ -131,7 +128,6 @@
             _sumaFinal = value
         End Set
     End Property
-
     Public Property ExemptType() As String
         Get
             Return _exmeptType
@@ -140,5 +136,46 @@
             _exmeptType = value
         End Set
     End Property
+    Public Property CompanyName() As String
+        Get
+            Return _companyName
+        End Get
+        Set(value As String)
+            _companyName = value
+        End Set
+    End Property
+    Public Property CompanyInn() As String
+        Get
+            Return _companyInn
+        End Get
+        Set(value As String)
+            _companyInn = value
+        End Set
+    End Property
+    Public Property CompanyAddress() As String
+        Get
+            Return _companyAddress
+        End Get
+        Set(value As String)
+            _companyAddress = value
+        End Set
+    End Property
+    Public Property CompanyPhone() As String
+        Get
+            Return _companyPhone
+        End Get
+        Set(value As String)
+            _companyPhone = value
+        End Set
+    End Property
+    Public Property CompanyChief() As String
+        Get
+            Return _companyChief
+        End Get
+        Set(value As String)
+            _companyChief = value
+        End Set
+    End Property
+
 
 End Class

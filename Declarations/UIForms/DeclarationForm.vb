@@ -5,6 +5,7 @@ Public Class DeclarationForm
 
     Private listPersons As ListPersonsForm
     Dim _dbService As DbService
+    Dim errMsg As String = "Следующие поля должны быть заполнены:" + vbNewLine
 
     Public Sub New(ByRef dbService As DbService)
         ' This call is required by the designer.
@@ -75,21 +76,39 @@ Public Class DeclarationForm
         End If
         declaration.ExemptType = Trim(tbExemptType.Text)
 
+        declaration.CompanyName = Trim(tbCompanyName.Text)
+        declaration.CompanyAddress = Trim(tbCompanyAddress.Text)
+        declaration.CompanyInn = Trim(tbCompanyInn.Text)
+        declaration.CompanyPhone = Trim(tbCompanyPhone.Text)
+        declaration.CompanyChief = Trim(tbCompanyChief.Text)
 
+        Dim valid As Boolean = ValidateDeclarationBeforeSave(declaration)
 
-        result = _dbService.AddNewDeclaration(declaration)
-
-        If (result = True) Then
-            Me.DialogResult = DialogResult.OK
+        If valid = True Then
+            result = _dbService.AddNewDeclaration(declaration)
+            If (result = True) Then
+                Me.DialogResult = DialogResult.OK
+            Else
+                Me.DialogResult = DialogResult.No
+            End If
+            Me.Close()
         Else
-            Me.DialogResult = DialogResult.No
+            MessageBox.Show(errMsg)
         End If
-        Me.Close()
     End Sub
 
-    Private Function ValidateDeclarationBeforeSave() As Boolean
-        Dim result As Boolean = False
+    Private Function ValidateDeclarationBeforeSave(ByRef declaration As Declaration) As Boolean
+        Dim result As Boolean = True
 
+        If String.IsNullOrEmpty(declaration.NrDeclaration) Then
+            result = False
+            errMsg += "Декларации" + vbNewLine
+        End If
+
+        If String.IsNullOrEmpty(declaration.TaxDistrict) Then
+            result = False
+            errMsg += "Номер налоговой инспекции" + vbNewLine
+        End If
 
 
         Return result
