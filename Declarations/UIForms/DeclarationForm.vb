@@ -43,7 +43,7 @@ Public Class DeclarationForm
 
         declaration.ID = 0
         declaration.NrDeclaration = Strings.Trim(tbNrDeclaration.Text)
-        declaration.DateCreatedAt = Date.Parse(mtbDateDeclaration.Text)
+        declaration.DateCreatedAt = Date.Today 'Date.Parse(mtbDateDeclaration.Text)
         declaration.TaxNumber = Trim(tbTaxNumber.Text)
         declaration.TaxDistrict = Trim(tbTaxDistrict.Text)
         declaration.Comment = Trim(tbComments.Text)

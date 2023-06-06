@@ -97,18 +97,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="UIForms\AddCompanyForm.Designer.vb">
-      <DependentUpon>AddCompanyForm.vb</DependentUpon>
-    </Compile>
-    <Compile Include="UIForms\AddCompanyForm.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UIForms\CompaniesForm.Designer.vb">
-      <DependentUpon>CompaniesForm.vb</DependentUpon>
-    </Compile>
-    <Compile Include="UIForms\CompaniesForm.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="UIForms\DeclarationForm.Designer.vb">
       <DependentUpon>DeclarationForm.vb</DependentUpon>
     </Compile>
