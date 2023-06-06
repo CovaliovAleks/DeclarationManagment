@@ -25,6 +25,11 @@ Partial Class DeclarationsForm
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.grbFilters = New System.Windows.Forms.GroupBox()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.dgvDeclarations = New System.Windows.Forms.DataGridView()
@@ -34,11 +39,6 @@ Partial Class DeclarationsForm
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.grbFilters.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.dgvDeclarations, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -78,6 +78,47 @@ Partial Class DeclarationsForm
         Me.grbFilters.TabStop = False
         Me.grbFilters.Text = "Фильтры"
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(666, 37)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(151, 41)
+        Me.Button1.TabIndex = 6
+        Me.Button1.Text = "Фильтровать"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(303, 24)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(110, 22)
+        Me.Label3.TabIndex = 5
+        Me.Label3.Text = "доп данные"
+        '
+        'TextBox3
+        '
+        Me.TextBox3.Location = New System.Drawing.Point(300, 50)
+        Me.TextBox3.Name = "TextBox3"
+        Me.TextBox3.Size = New System.Drawing.Size(333, 28)
+        Me.TextBox3.TabIndex = 4
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(156, 25)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(30, 22)
+        Me.Label2.TabIndex = 3
+        Me.Label2.Text = "по"
+        '
+        'TextBox2
+        '
+        Me.TextBox2.Location = New System.Drawing.Point(156, 51)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(129, 28)
+        Me.TextBox2.TabIndex = 2
+        '
         'GroupBox1
         '
         Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Bottom
@@ -100,13 +141,18 @@ Partial Class DeclarationsForm
         '
         'dgvDeclarations
         '
+        Me.dgvDeclarations.AllowUserToAddRows = False
+        Me.dgvDeclarations.AllowUserToDeleteRows = False
         Me.dgvDeclarations.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvDeclarations.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column6, Me.Column2, Me.Column3, Me.Column4, Me.Column5})
         Me.dgvDeclarations.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgvDeclarations.Location = New System.Drawing.Point(3, 18)
+        Me.dgvDeclarations.MultiSelect = False
         Me.dgvDeclarations.Name = "dgvDeclarations"
+        Me.dgvDeclarations.ReadOnly = True
         Me.dgvDeclarations.RowHeadersWidth = 51
         Me.dgvDeclarations.RowTemplate.Height = 24
+        Me.dgvDeclarations.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvDeclarations.Size = New System.Drawing.Size(976, 427)
         Me.dgvDeclarations.TabIndex = 0
         '
@@ -115,6 +161,7 @@ Partial Class DeclarationsForm
         Me.Column1.HeaderText = "№ Декларации"
         Me.Column1.MinimumWidth = 6
         Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
         Me.Column1.Width = 150
         '
         'Column6
@@ -122,6 +169,7 @@ Partial Class DeclarationsForm
         Me.Column6.HeaderText = "Дата"
         Me.Column6.MinimumWidth = 6
         Me.Column6.Name = "Column6"
+        Me.Column6.ReadOnly = True
         Me.Column6.Width = 125
         '
         'Column2
@@ -129,6 +177,7 @@ Partial Class DeclarationsForm
         Me.Column2.HeaderText = "Физ. лицо"
         Me.Column2.MinimumWidth = 6
         Me.Column2.Name = "Column2"
+        Me.Column2.ReadOnly = True
         Me.Column2.Width = 150
         '
         'Column3
@@ -136,6 +185,7 @@ Partial Class DeclarationsForm
         Me.Column3.HeaderText = "Компания"
         Me.Column3.MinimumWidth = 6
         Me.Column3.Name = "Column3"
+        Me.Column3.ReadOnly = True
         Me.Column3.Width = 150
         '
         'Column4
@@ -143,6 +193,7 @@ Partial Class DeclarationsForm
         Me.Column4.HeaderText = "Сумма"
         Me.Column4.MinimumWidth = 6
         Me.Column4.Name = "Column4"
+        Me.Column4.ReadOnly = True
         Me.Column4.Width = 125
         '
         'Column5
@@ -150,48 +201,8 @@ Partial Class DeclarationsForm
         Me.Column5.HeaderText = "Налог"
         Me.Column5.MinimumWidth = 6
         Me.Column5.Name = "Column5"
+        Me.Column5.ReadOnly = True
         Me.Column5.Width = 125
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(156, 25)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(30, 22)
-        Me.Label2.TabIndex = 3
-        Me.Label2.Text = "по"
-        '
-        'TextBox2
-        '
-        Me.TextBox2.Location = New System.Drawing.Point(156, 51)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(129, 28)
-        Me.TextBox2.TabIndex = 2
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(303, 24)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(110, 22)
-        Me.Label3.TabIndex = 5
-        Me.Label3.Text = "доп данные"
-        '
-        'TextBox3
-        '
-        Me.TextBox3.Location = New System.Drawing.Point(300, 50)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(333, 28)
-        Me.TextBox3.TabIndex = 4
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(666, 37)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(151, 41)
-        Me.Button1.TabIndex = 6
-        Me.Button1.Text = "Фильтровать"
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'DeclarationsForm
         '

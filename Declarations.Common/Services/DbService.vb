@@ -282,6 +282,52 @@ Public Class DbService
         Return lstPesrons
     End Function
 
+    Function AddNewDeclaration(ByRef declaration As Declaration) As Declaration
+        Dim query As String
+        query = "INSERT INTO Declaration(NumberTax,DateTax,TaxNumber, DistrictTax,Comment, 
+                        PersonId, PersonFIO, SumAll, SumTax, SumPension, ExemptType, Exempt, SumFinal)
+                VALUES(@declnum, @taxdate, @taxnumber, @taxdist, @comment,
+                        @persid, @persfio, @sumaall, @sumatax,@sumapens, @exempttype, @exempt, @sumfinal);"
+
+        Try
+            dbConn = New OleDb.OleDbConnection(dbConnString)
+            dbConn.Open()
+
+            Using cmd As New OleDbCommand()
+                cmd.Connection = dbConn
+                cmd.CommandType = CommandType.Text
+                cmd.CommandText = query
+                Try
+                    cmd.Parameters.AddWithValue("@declnum", declaration.NrDeclaration)
+                    cmd.Parameters.AddWithValue("@taxdate", declaration.DateCreatedAt)
+                    cmd.Parameters.AddWithValue("@taxnumber", declaration.TaxNumber)
+                    cmd.Parameters.AddWithValue("@taxdist", declaration.TaxDistrict)
+                    cmd.Parameters.AddWithValue("@comment", declaration.Comment)
+                    cmd.Parameters.AddWithValue("@persid", declaration.PersonId)
+                    cmd.Parameters.AddWithValue("@persfio", declaration.PersonFio)
+                    cmd.Parameters.AddWithValue("@sumaall", declaration.SummaAll)
+                    cmd.Parameters.AddWithValue("@sumatax", declaration.SummaTax)
+                    cmd.Parameters.AddWithValue("@sumapens", declaration.SummaPens)
+                    cmd.Parameters.AddWithValue("@exempttype", declaration.ExemptType)
+                    cmd.Parameters.AddWithValue("@exempt", declaration.SummaExempt)
+                    cmd.Parameters.AddWithValue("@sumfinal", declaration.SummaFinal)
+
+                    cmd.ExecuteNonQuery()
+                    Console.WriteLine("Table created.")
+                Catch ex As Exception
+                    Console.WriteLine(ex.Message)
+                End Try
+            End Using
+
+        Catch ex As Exception
+            Dim msg As String = ex.Message
+        Finally
+            dbConn.Close()
+        End Try
+
+        Return declaration
+    End Function
+
     Function AddNewPerson(ByRef person As Person) As Person
         Dim query As String
 

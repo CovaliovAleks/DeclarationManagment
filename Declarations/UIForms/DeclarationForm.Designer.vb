@@ -25,14 +25,13 @@ Partial Class DeclarationForm
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.mtbDateDeclaration = New System.Windows.Forms.MaskedTextBox()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.TextBox6 = New System.Windows.Forms.TextBox()
+        Me.tbSumPens = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.btnClearPerson = New System.Windows.Forms.Button()
         Me.btnSelectPerson = New System.Windows.Forms.Button()
         Me.tbPerson = New System.Windows.Forms.TextBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.tbSumAll = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.tbNrDeclaration = New System.Windows.Forms.TextBox()
@@ -53,18 +52,19 @@ Partial Class DeclarationForm
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.btnCancel = New System.Windows.Forms.Button()
         Me.btnAddDeclaration = New System.Windows.Forms.Button()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.tbTaxNumber = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.tbTaxDistrict = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
+        Me.tbExemptType = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
-        Me.TextBox7 = New System.Windows.Forms.TextBox()
+        Me.tbSumExempt = New System.Windows.Forms.TextBox()
         Me.Label15 = New System.Windows.Forms.Label()
-        Me.TextBox10 = New System.Windows.Forms.TextBox()
+        Me.tbComments = New System.Windows.Forms.TextBox()
         Me.Label16 = New System.Windows.Forms.Label()
-        Me.TextBox13 = New System.Windows.Forms.TextBox()
+        Me.tbSumFinal = New System.Windows.Forms.TextBox()
         Me.Label17 = New System.Windows.Forms.Label()
+        Me.tbSumTax = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -73,28 +73,28 @@ Partial Class DeclarationForm
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.tbSumTax)
         Me.GroupBox1.Controls.Add(Me.Label17)
-        Me.GroupBox1.Controls.Add(Me.TextBox13)
+        Me.GroupBox1.Controls.Add(Me.tbSumFinal)
         Me.GroupBox1.Controls.Add(Me.Label16)
-        Me.GroupBox1.Controls.Add(Me.TextBox10)
-        Me.GroupBox1.Controls.Add(Me.TextBox7)
+        Me.GroupBox1.Controls.Add(Me.tbComments)
+        Me.GroupBox1.Controls.Add(Me.tbSumExempt)
         Me.GroupBox1.Controls.Add(Me.Label15)
-        Me.GroupBox1.Controls.Add(Me.TextBox5)
+        Me.GroupBox1.Controls.Add(Me.tbExemptType)
         Me.GroupBox1.Controls.Add(Me.Label14)
-        Me.GroupBox1.Controls.Add(Me.TextBox2)
+        Me.GroupBox1.Controls.Add(Me.tbTaxDistrict)
         Me.GroupBox1.Controls.Add(Me.Label11)
-        Me.GroupBox1.Controls.Add(Me.TextBox1)
+        Me.GroupBox1.Controls.Add(Me.tbTaxNumber)
         Me.GroupBox1.Controls.Add(Me.Label9)
         Me.GroupBox1.Controls.Add(Me.mtbDateDeclaration)
         Me.GroupBox1.Controls.Add(Me.Label7)
-        Me.GroupBox1.Controls.Add(Me.ComboBox1)
-        Me.GroupBox1.Controls.Add(Me.TextBox6)
+        Me.GroupBox1.Controls.Add(Me.tbSumPens)
         Me.GroupBox1.Controls.Add(Me.Label6)
         Me.GroupBox1.Controls.Add(Me.Label5)
         Me.GroupBox1.Controls.Add(Me.btnClearPerson)
         Me.GroupBox1.Controls.Add(Me.btnSelectPerson)
         Me.GroupBox1.Controls.Add(Me.tbPerson)
-        Me.GroupBox1.Controls.Add(Me.TextBox3)
+        Me.GroupBox1.Controls.Add(Me.tbSumAll)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.tbNrDeclaration)
@@ -126,20 +126,13 @@ Partial Class DeclarationForm
         Me.Label7.TabIndex = 12
         Me.Label7.Text = "Величина подоходного налога"
         '
-        'ComboBox1
+        'tbSumPens
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(222, 199)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(267, 30)
-        Me.ComboBox1.TabIndex = 11
-        '
-        'TextBox6
-        '
-        Me.TextBox6.Location = New System.Drawing.Point(496, 201)
-        Me.TextBox6.Name = "TextBox6"
-        Me.TextBox6.Size = New System.Drawing.Size(282, 28)
-        Me.TextBox6.TabIndex = 10
+        Me.tbSumPens.Location = New System.Drawing.Point(496, 201)
+        Me.tbSumPens.MaxLength = 10
+        Me.tbSumPens.Name = "tbSumPens"
+        Me.tbSumPens.Size = New System.Drawing.Size(282, 28)
+        Me.tbSumPens.TabIndex = 10
         '
         'Label6
         '
@@ -184,12 +177,13 @@ Partial Class DeclarationForm
         Me.tbPerson.Size = New System.Drawing.Size(237, 28)
         Me.tbPerson.TabIndex = 6
         '
-        'TextBox3
+        'tbSumAll
         '
-        Me.TextBox3.Location = New System.Drawing.Point(14, 201)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(202, 28)
-        Me.TextBox3.TabIndex = 5
+        Me.tbSumAll.Location = New System.Drawing.Point(14, 201)
+        Me.tbSumAll.MaxLength = 10
+        Me.tbSumAll.Name = "tbSumAll"
+        Me.tbSumAll.Size = New System.Drawing.Size(202, 28)
+        Me.tbSumAll.TabIndex = 5
         '
         'Label3
         '
@@ -212,6 +206,7 @@ Partial Class DeclarationForm
         'tbNrDeclaration
         '
         Me.tbNrDeclaration.Location = New System.Drawing.Point(332, 62)
+        Me.tbNrDeclaration.MaxLength = 20
         Me.tbNrDeclaration.Name = "tbNrDeclaration"
         Me.tbNrDeclaration.Size = New System.Drawing.Size(157, 28)
         Me.tbNrDeclaration.TabIndex = 1
@@ -377,12 +372,13 @@ Partial Class DeclarationForm
         Me.btnAddDeclaration.Text = "Add declaration"
         Me.btnAddDeclaration.UseVisualStyleBackColor = True
         '
-        'TextBox1
+        'tbTaxNumber
         '
-        Me.TextBox1.Location = New System.Drawing.Point(12, 127)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(305, 28)
-        Me.TextBox1.TabIndex = 19
+        Me.tbTaxNumber.Location = New System.Drawing.Point(12, 127)
+        Me.tbTaxNumber.MaxLength = 4
+        Me.tbTaxNumber.Name = "tbTaxNumber"
+        Me.tbTaxNumber.Size = New System.Drawing.Size(305, 28)
+        Me.tbTaxNumber.TabIndex = 19
         '
         'Label9
         '
@@ -393,12 +389,13 @@ Partial Class DeclarationForm
         Me.Label9.TabIndex = 18
         Me.Label9.Text = "Номер налоговой инспекции"
         '
-        'TextBox2
+        'tbTaxDistrict
         '
-        Me.TextBox2.Location = New System.Drawing.Point(332, 127)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(305, 28)
-        Me.TextBox2.TabIndex = 21
+        Me.tbTaxDistrict.Location = New System.Drawing.Point(332, 127)
+        Me.tbTaxDistrict.MaxLength = 100
+        Me.tbTaxDistrict.Name = "tbTaxDistrict"
+        Me.tbTaxDistrict.Size = New System.Drawing.Size(305, 28)
+        Me.tbTaxDistrict.TabIndex = 21
         '
         'Label11
         '
@@ -409,12 +406,13 @@ Partial Class DeclarationForm
         Me.Label11.TabIndex = 20
         Me.Label11.Text = "Инспекция, где стоит на учете"
         '
-        'TextBox5
+        'tbExemptType
         '
-        Me.TextBox5.Location = New System.Drawing.Point(222, 262)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(267, 28)
-        Me.TextBox5.TabIndex = 23
+        Me.tbExemptType.Location = New System.Drawing.Point(222, 262)
+        Me.tbExemptType.MaxLength = 150
+        Me.tbExemptType.Name = "tbExemptType"
+        Me.tbExemptType.Size = New System.Drawing.Size(267, 28)
+        Me.tbExemptType.TabIndex = 23
         '
         'Label14
         '
@@ -425,12 +423,13 @@ Partial Class DeclarationForm
         Me.Label14.TabIndex = 22
         Me.Label14.Text = "Название льготы"
         '
-        'TextBox7
+        'tbSumExempt
         '
-        Me.TextBox7.Location = New System.Drawing.Point(495, 262)
-        Me.TextBox7.Name = "TextBox7"
-        Me.TextBox7.Size = New System.Drawing.Size(283, 28)
-        Me.TextBox7.TabIndex = 25
+        Me.tbSumExempt.Location = New System.Drawing.Point(495, 262)
+        Me.tbSumExempt.MaxLength = 10
+        Me.tbSumExempt.Name = "tbSumExempt"
+        Me.tbSumExempt.Size = New System.Drawing.Size(283, 28)
+        Me.tbSumExempt.TabIndex = 25
         '
         'Label15
         '
@@ -441,13 +440,14 @@ Partial Class DeclarationForm
         Me.Label15.TabIndex = 24
         Me.Label15.Text = "Сумма льготы"
         '
-        'TextBox10
+        'tbComments
         '
-        Me.TextBox10.Location = New System.Drawing.Point(818, 62)
-        Me.TextBox10.Multiline = True
-        Me.TextBox10.Name = "TextBox10"
-        Me.TextBox10.Size = New System.Drawing.Size(254, 224)
-        Me.TextBox10.TabIndex = 26
+        Me.tbComments.Location = New System.Drawing.Point(818, 62)
+        Me.tbComments.MaxLength = 1000
+        Me.tbComments.Multiline = True
+        Me.tbComments.Name = "tbComments"
+        Me.tbComments.Size = New System.Drawing.Size(254, 224)
+        Me.tbComments.TabIndex = 26
         '
         'Label16
         '
@@ -458,12 +458,13 @@ Partial Class DeclarationForm
         Me.Label16.TabIndex = 27
         Me.Label16.Text = "Примечания"
         '
-        'TextBox13
+        'tbSumFinal
         '
-        Me.TextBox13.Location = New System.Drawing.Point(14, 262)
-        Me.TextBox13.Name = "TextBox13"
-        Me.TextBox13.Size = New System.Drawing.Size(201, 28)
-        Me.TextBox13.TabIndex = 12
+        Me.tbSumFinal.Location = New System.Drawing.Point(14, 262)
+        Me.tbSumFinal.MaxLength = 10
+        Me.tbSumFinal.Name = "tbSumFinal"
+        Me.tbSumFinal.Size = New System.Drawing.Size(201, 28)
+        Me.tbSumFinal.TabIndex = 12
         '
         'Label17
         '
@@ -473,6 +474,14 @@ Partial Class DeclarationForm
         Me.Label17.Size = New System.Drawing.Size(136, 22)
         Me.Label17.TabIndex = 28
         Me.Label17.Text = "Сумма на руки"
+        '
+        'tbSumTax
+        '
+        Me.tbSumTax.Location = New System.Drawing.Point(222, 201)
+        Me.tbSumTax.MaxLength = 10
+        Me.tbSumTax.Name = "tbSumTax"
+        Me.tbSumTax.Size = New System.Drawing.Size(267, 28)
+        Me.tbSumTax.TabIndex = 29
         '
         'DeclarationForm
         '
@@ -495,15 +504,14 @@ Partial Class DeclarationForm
     End Sub
 
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents tbSumAll As TextBox
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents tbNrDeclaration As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents Label7 As Label
-    Friend WithEvents ComboBox1 As ComboBox
-    Friend WithEvents TextBox6 As TextBox
+    Friend WithEvents tbSumPens As TextBox
     Friend WithEvents Label6 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents btnClearPerson As Button
@@ -526,15 +534,16 @@ Partial Class DeclarationForm
     Friend WithEvents btnAddDeclaration As Button
     Friend WithEvents mtbDateDeclaration As MaskedTextBox
     Friend WithEvents Label16 As Label
-    Friend WithEvents TextBox10 As TextBox
-    Friend WithEvents TextBox7 As TextBox
+    Friend WithEvents tbComments As TextBox
+    Friend WithEvents tbSumExempt As TextBox
     Friend WithEvents Label15 As Label
-    Friend WithEvents TextBox5 As TextBox
+    Friend WithEvents tbExemptType As TextBox
     Friend WithEvents Label14 As Label
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents tbTaxDistrict As TextBox
     Friend WithEvents Label11 As Label
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents tbTaxNumber As TextBox
     Friend WithEvents Label9 As Label
     Friend WithEvents Label17 As Label
-    Friend WithEvents TextBox13 As TextBox
+    Friend WithEvents tbSumFinal As TextBox
+    Friend WithEvents tbSumTax As TextBox
 End Class
