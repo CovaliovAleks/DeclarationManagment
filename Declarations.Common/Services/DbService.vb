@@ -28,7 +28,8 @@ Public Class DbService
 
     Public Sub DropTable()
         Dim result As Boolean = False
-        Dim strCreate As String = "DROP TABLE Person;"
+        'Dim strCreate As String = "DROP TABLE Person;"
+        Dim strCreate As String = "DROP TABLE Declaration;"
 
         Try
             dbConn = New OleDb.OleDbConnection(dbConnString)
@@ -145,17 +146,21 @@ Public Class DbService
 				Photo IMAGE, Phone Varchar(100), 
 				Region Varchar(200), City Varchar(100), Street Varchar(200),
 				TypeDocument Varchar(50), SeriaNumber Varchar(50), IssuedBy Varchar(100), DocIssueDate DATETIME,
-				CONSTRAINT [PrimaryKey] PRIMARY KEY ([ID]));"
+				CONSTRAINT [PrimaryKey] PRIMARY KEY ([ID]));
+                "
 
         'Create table Person
-        'CreateTable(qr)
+        CreateTable(qr)
 
 
-        qr = "CREATE TABLE Declaration(ID COUNTER, NumberTax Varchar(20), DateTax DATETIME, TaxNumber Varchar(4), DistrictTax Varchar(20), 
-						Comment Memo, PersonId INTEGER, PersonFIO Varchar(255),
-						SumAll Currency,SumTax	Currency,SumPension Currency,ExemptType Varchar(150), Exempt Currency,SumFinal Currency,
-				CompanyName Varchar(200), CompanyInn Varchar(20), CompanyAddress Varchar(200), CompanyChief Varchar(150), 
-				CompanyPhone Varchar(50), CONSTRAINT [PrimaryKey] PRIMARY KEY ([ID]));"
+        '    qr = "CREATE TABLE Declaration(ID COUNTER, NumberTax Varchar(20), DateTax DATETIME, TaxNumber Varchar(4), DistrictTax Varchar(20), 
+        '		Comment Memo, PersonId INTEGER, PersonFIO Varchar(255),
+        '		SumAll Currency,SumTax	Currency,SumPension Currency,ExemptType Varchar(150), Exempt Currency,SumFinal Currency,
+        'CompanyName Varchar(200), CompanyInn Varchar(20), CompanyAddress Varchar(200), CompanyChief Varchar(150), 
+        'CompanyPhone Varchar(50), CONSTRAINT [PrimaryKey] PRIMARY KEY ([ID]));"
+
+        qr = "CREATE TABLE Persons(ID COUNTER, NumberTax Varchar(20));"
+
 
         'Create table Declaration
         CreateTable(qr)
@@ -238,7 +243,7 @@ Public Class DbService
         Dim lstDeclarations As New List(Of Declaration)
         Dim query As String
 
-        query = "SELECT * FROM declaration where id =1;"
+        query = "SELECT * FROM Persons"
         Try
             dbConn = New OleDb.OleDbConnection(dbConnString)
             dbConn.Open()
@@ -254,18 +259,18 @@ Public Class DbService
                     Dim item As New Declaration
                     item.ID = reader.GetValue(0)
                     item.NrDeclaration = reader.GetValue(1)
-                    item.DateCreatedAt = reader.GetValue(2)
-                    item.TaxNumber = reader.GetValue(3)
-                    item.TaxDistrict = reader.GetValue(4)
-                    item.Comment = reader.GetValue(5)
-                    item.PersonId = reader.GetValue(6)
-                    item.PersonFio = reader.GetValue(7)
+                    'item.DateCreatedAt = reader.GetValue(2)
+                    'item.TaxNumber = reader.GetValue(3)
+                    'item.TaxDistrict = reader.GetValue(4)
+                    'item.Comment = reader.GetValue(5)
+                    'item.PersonId = reader.GetValue(6)
+                    'item.PersonFio = reader.GetValue(7)
 
-                    item.SummaAll = reader.GetValue(8)
-                    item.SummaTax = reader.GetValue(9)
-                    item.SummaPens = reader.GetValue(10)
-                    item.ExemptType = reader.GetValue(10)
-                    item.SummaExempt = reader.GetValue(10)
+                    'item.SummaAll = reader.GetValue(8)
+                    'item.SummaTax = reader.GetValue(9)
+                    'item.SummaPens = reader.GetValue(10)
+                    'item.ExemptType = reader.GetValue(10)
+                    'item.SummaExempt = reader.GetValue(10)
 
                     lstDeclarations.Add(item)
 
@@ -333,10 +338,14 @@ Public Class DbService
 
     Function AddNewDeclaration(ByRef declaration As Declaration) As Declaration
         Dim query As String
-        query = "INSERT INTO Declaration(NumberTax,DateTax,TaxNumber, DistrictTax,Comment, 
-                        PersonId, PersonFIO, SumAll, SumTax, SumPension, ExemptType, Exempt, SumFinal)
-                VALUES(@declnum, @taxdate, @taxnumber, @taxdist, @comment,
-                        @persid, @persfio, @sumaall, @sumatax,@sumapens, @exempttype, @exempt, @sumfinal);"
+        'query = "INSERT INTO Declaration(NumberTax,DateTax,TaxNumber, DistrictTax,Comment, 
+        '                PersonId, PersonFIO, SumAll, SumTax, SumPension, ExemptType, Exempt, SumFinal,
+        '                CompanyName, CompanyInn, CompanyAddress, CompanyChief, CompanyPhone)
+        '        VALUES(@declnum, @taxdate, @taxnumber, @taxdist, @comment,
+        '                @persid, @persfio, @sumaall, @sumatax,@sumapens, @exempttype, @exempt, @sumfinal,
+        '                @cmpname, @cmpinn, @cmpaddress, @cmpchief, @cmpphone);"
+
+        query = "INSERT INTO Persons(NumberTax) VALUES(@declnum);"
 
         Try
             dbConn = New OleDb.OleDbConnection(dbConnString)
@@ -348,21 +357,28 @@ Public Class DbService
                 cmd.CommandText = query
                 Try
                     cmd.Parameters.AddWithValue("@declnum", declaration.NrDeclaration)
-                    cmd.Parameters.AddWithValue("@taxdate", declaration.DateCreatedAt)
-                    cmd.Parameters.AddWithValue("@taxnumber", declaration.TaxNumber)
-                    cmd.Parameters.AddWithValue("@taxdist", declaration.TaxDistrict)
-                    cmd.Parameters.AddWithValue("@comment", declaration.Comment)
-                    cmd.Parameters.AddWithValue("@persid", declaration.PersonId)
-                    cmd.Parameters.AddWithValue("@persfio", declaration.PersonFio)
-                    cmd.Parameters.AddWithValue("@sumaall", declaration.SummaAll)
-                    cmd.Parameters.AddWithValue("@sumatax", declaration.SummaTax)
-                    cmd.Parameters.AddWithValue("@sumapens", declaration.SummaPens)
-                    cmd.Parameters.AddWithValue("@exempttype", declaration.ExemptType)
-                    cmd.Parameters.AddWithValue("@exempt", declaration.SummaExempt)
-                    cmd.Parameters.AddWithValue("@sumfinal", declaration.SummaFinal)
+                    'cmd.Parameters.AddWithValue("@taxdate", declaration.DateCreatedAt)
+                    'cmd.Parameters.AddWithValue("@taxnumber", declaration.TaxNumber)
+                    'cmd.Parameters.AddWithValue("@taxdist", declaration.TaxDistrict)
+                    'cmd.Parameters.AddWithValue("@comment", declaration.Comment)
+                    'cmd.Parameters.AddWithValue("@persid", declaration.PersonId)
+                    'cmd.Parameters.AddWithValue("@persfio", declaration.PersonFio)
+                    'cmd.Parameters.AddWithValue("@sumaall", declaration.SummaAll)
+
+                    'cmd.Parameters.AddWithValue("@sumatax", declaration.SummaTax)
+                    'cmd.Parameters.AddWithValue("@sumapens", declaration.SummaPens)
+                    'cmd.Parameters.AddWithValue("@exempttype", declaration.ExemptType)
+                    'cmd.Parameters.AddWithValue("@exempt", declaration.SummaExempt)
+                    'cmd.Parameters.AddWithValue("@sumfinal", declaration.SummaFinal)
+
+                    'cmd.Parameters.AddWithValue("@cmpname", "")
+                    'cmd.Parameters.AddWithValue("@cmpinn", "")
+                    'cmd.Parameters.AddWithValue("@cmpaddress", "")
+                    'cmd.Parameters.AddWithValue("@cmpchief", "")
+                    'cmd.Parameters.AddWithValue("@cmpphone", "")
 
                     cmd.ExecuteNonQuery()
-                    Console.WriteLine("Table created.")
+                    Console.WriteLine("Inserted.")
                 Catch ex As Exception
                     Console.WriteLine(ex.Message)
                 End Try
@@ -418,7 +434,7 @@ Public Class DbService
                     cmd.Parameters.AddWithValue("@issby", person.IssuedBy)
 
                     cmd.ExecuteNonQuery()
-                    Console.WriteLine("Table created.")
+                    Console.WriteLine("Inserted.")
                 Catch ex As Exception
                     Console.WriteLine(ex.Message)
                 End Try

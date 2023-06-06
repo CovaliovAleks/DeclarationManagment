@@ -18,7 +18,8 @@ Public Class Form1
         ' This call is required by the designer.
         InitializeComponent()
 
-        strDBFileName = "Db\Database2.accdb"
+        'strDBFileName = "Db\Database2.accdb"
+        strDBFileName = "C:\Db\Database2.accdb"
         connStr = "Data Source=" & strDBFileName & ";User ID=Admin;Provider=Microsoft.ACE.OLEDB.12.0;OLE DB Services=-1"
         _dbService = New DbService(connStr)
         '_dbService.DropTable()
