@@ -11,6 +11,7 @@ Public Class DeclarationsForm
         InitializeComponent()
 
         _dbService = dbService
+        dgvDeclarations.AutoGenerateColumns = False
 
     End Sub
 
@@ -20,4 +21,10 @@ Public Class DeclarationsForm
         dgvDeclarations.DataSource = lstDeclarations
 
     End Sub
+
+    Public Sub ResfreshDataGrid()
+        lstDeclarations = _dbService.GetDeclarations()
+        dgvDeclarations.DataSource = lstDeclarations
+    End Sub
+
 End Class

@@ -176,18 +176,18 @@ Public Class DbService
                     Dim item As New Declaration
                     item.ID = reader.GetValue(0)
                     item.NrDeclaration = reader.GetValue(1)
-                    'item.DateCreatedAt = reader.GetValue(2)
-                    'item.TaxNumber = reader.GetValue(3)
-                    'item.TaxDistrict = reader.GetValue(4)
-                    'item.Comment = reader.GetValue(5)
-                    'item.PersonId = reader.GetValue(6)
-                    'item.PersonFio = reader.GetValue(7)
+                    item.DateCreatedAt = reader.GetValue(2)
+                    item.TaxNumber = reader.GetValue(3)
+                    item.TaxDistrict = reader.GetValue(4)
+                    item.Comment = reader.GetValue(5)
+                    item.PersonId = reader.GetValue(6)
+                    item.PersonFio = reader.GetValue(7)
 
-                    'item.SummaAll = reader.GetValue(8)
-                    'item.SummaTax = reader.GetValue(9)
-                    'item.SummaPens = reader.GetValue(10)
-                    'item.ExemptType = reader.GetValue(10)
-                    'item.SummaExempt = reader.GetValue(10)
+                    item.SummaAll = reader.GetValue(8)
+                    item.SummaTax = reader.GetValue(9)
+                    item.SummaPens = reader.GetValue(10)
+                    item.ExemptType = reader.GetValue(10)
+                    item.SummaExempt = reader.GetValue(10)
 
                     lstDeclarations.Add(item)
 
@@ -253,7 +253,8 @@ Public Class DbService
         Return lstPerons
     End Function
 
-    Function AddNewDeclaration(ByRef declaration As Declaration) As Declaration
+    Function AddNewDeclaration(ByRef declaration As Declaration) As Boolean
+        Dim qrResult As Boolean = False
         Dim query As String
         query = "INSERT INTO Declaration(NumberTax,DateTax,TaxNumber, DistrictTax,Comment, 
                         PersonId, PersonFIO, SumAll, SumTax, SumPension, ExemptType, Exempt, SumFinal,
@@ -295,6 +296,7 @@ Public Class DbService
 
                     cmd.ExecuteNonQuery()
                     Console.WriteLine("Inserted.")
+                    qrResult = True
                 Catch ex As Exception
                     Console.WriteLine(ex.Message)
                 End Try
@@ -306,7 +308,7 @@ Public Class DbService
             dbConn.Close()
         End Try
 
-        Return declaration
+        Return qrResult
     End Function
 
     Function AddNewPerson(ByRef person As Person) As Person

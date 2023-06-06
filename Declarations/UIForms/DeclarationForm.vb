@@ -36,10 +36,12 @@ Public Class DeclarationForm
     End Sub
 
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
-
+        Me.DialogResult = DialogResult.Cancel
+        Me.Close()
     End Sub
 
     Private Sub btnAddDeclaration_Click(sender As Object, e As EventArgs) Handles btnAddDeclaration.Click
+        Dim result As Boolean = False
 
         declaration.ID = 0
         declaration.NrDeclaration = Strings.Trim(tbNrDeclaration.Text)
@@ -75,9 +77,14 @@ Public Class DeclarationForm
 
 
 
-        _dbService.AddNewDeclaration(declaration)
+        result = _dbService.AddNewDeclaration(declaration)
 
-
+        If (result = True) Then
+            Me.DialogResult = DialogResult.OK
+        Else
+            Me.DialogResult = DialogResult.No
+        End If
+        Me.Close()
     End Sub
 
     Private Function ValidateDeclarationBeforeSave() As Boolean

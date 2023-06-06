@@ -98,13 +98,36 @@ Public Class Form1
     End Sub
 
     Private Sub tlsCreateDeclaration_Click(sender As Object, e As EventArgs) Handles tlsCreateDeclaration.Click
-        If activForm <> ActiveFormEnum.AddDeclaration Then
-            activForm = ActiveFormEnum.AddDeclaration
-            If declarationForm Is Nothing Then
-                declarationForm = New DeclarationForm(_dbService)
-            End If
-            LoadForm(declarationForm)
+        If declarationForm Is Nothing Then
+            declarationForm = New DeclarationForm(_dbService)
+        End If
+
+        Dim dlgResult As DialogResult = declarationForm.ShowDialog()
+        If dlgResult = DialogResult.OK Then
+            declarationsForm.ResfreshDataGrid()
+        End If
+
+
+        'If activForm <> ActiveFormEnum.AddDeclaration Then
+        '    activForm = ActiveFormEnum.AddDeclaration
+        '    If declarationForm Is Nothing Then
+        '        declarationForm = New DeclarationForm(_dbService)
+        '    End If
+        '    LoadForm(declarationForm)
+        'End If
+    End Sub
+
+    Private Sub tlsAppExit_Click(sender As Object, e As EventArgs) Handles tlsAppExit.Click
+        Dim dlgResult As DialogResult = MessageBox.Show("Желаете закрыть приложение?", "Окончание работы", MessageBoxButtons.YesNo)
+        If dlgResult = DialogResult.Yes Then
+            Close()
         End If
     End Sub
 
+    Private Sub Form1_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        Dim dlgResult As DialogResult = MessageBox.Show("Желаете закрыть приложение?", "Окончание работы", MessageBoxButtons.YesNo)
+        If dlgResult = DialogResult.No Then
+            e.Cancel = True
+        End If
+    End Sub
 End Class

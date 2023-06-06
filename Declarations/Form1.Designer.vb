@@ -35,7 +35,7 @@ Partial Class Form1
         Me.ToolStripLabel4 = New System.Windows.Forms.ToolStripLabel()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ВыходToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tlsAppExit = New System.Windows.Forms.ToolStripMenuItem()
         Me.SettingsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.tlsCreateDeclaration = New System.Windows.Forms.ToolStripMenuItem()
         Me.tlsCreatePerson = New System.Windows.Forms.ToolStripMenuItem()
@@ -56,7 +56,7 @@ Partial Class Form1
         Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton1, Me.ToolStripLabel1, Me.ToolStripButton2, Me.ToolStripLabel2, Me.ToolStripSeparator2, Me.ToolStripButton3, Me.ToolStripLabel3, Me.ToolStripButton4, Me.ToolStripLabel4})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 36)
         Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.Size = New System.Drawing.Size(1222, 27)
+        Me.ToolStrip1.Size = New System.Drawing.Size(1222, 31)
         Me.ToolStrip1.TabIndex = 0
         Me.ToolStrip1.Text = "tlsTopMenu"
         '
@@ -66,7 +66,7 @@ Partial Class Form1
         Me.ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"), System.Drawing.Image)
         Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton1.Name = "ToolStripButton1"
-        Me.ToolStripButton1.Size = New System.Drawing.Size(29, 24)
+        Me.ToolStripButton1.Size = New System.Drawing.Size(29, 28)
         Me.ToolStripButton1.Text = "ToolStripButton1"
         '
         'ToolStripLabel1
@@ -137,25 +137,25 @@ Partial Class Form1
         '
         'FileToolStripMenuItem
         '
-        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ВыходToolStripMenuItem})
+        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tlsAppExit})
         Me.FileToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
         Me.FileToolStripMenuItem.Size = New System.Drawing.Size(75, 32)
         Me.FileToolStripMenuItem.Text = "Файл"
         '
-        'ВыходToolStripMenuItem
+        'tlsAppExit
         '
-        Me.ВыходToolStripMenuItem.Name = "ВыходToolStripMenuItem"
-        Me.ВыходToolStripMenuItem.Size = New System.Drawing.Size(159, 32)
-        Me.ВыходToolStripMenuItem.Text = "Выход"
+        Me.tlsAppExit.Name = "tlsAppExit"
+        Me.tlsAppExit.Size = New System.Drawing.Size(224, 32)
+        Me.tlsAppExit.Text = "Выход"
         '
         'SettingsToolStripMenuItem
         '
         Me.SettingsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tlsCreateDeclaration, Me.tlsCreatePerson})
         Me.SettingsToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem"
-        Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(167, 32)
-        Me.SettingsToolStripMenuItem.Text = "Редактировать"
+        Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(118, 32)
+        Me.SettingsToolStripMenuItem.Text = "Добавить"
         '
         'tlsCreateDeclaration
         '
@@ -174,8 +174,8 @@ Partial Class Form1
         Me.WToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tlsmDeclarations, Me.tlsPersons})
         Me.WToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.WToolStripMenuItem.Name = "WToolStripMenuItem"
-        Me.WToolStripMenuItem.Size = New System.Drawing.Size(74, 32)
-        Me.WToolStripMenuItem.Text = "Окна"
+        Me.WToolStripMenuItem.Size = New System.Drawing.Size(113, 32)
+        Me.WToolStripMenuItem.Text = "Показать"
         '
         'tlsmDeclarations
         '
@@ -213,9 +213,9 @@ Partial Class Form1
         'pnlDesktop
         '
         Me.pnlDesktop.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlDesktop.Location = New System.Drawing.Point(0, 63)
+        Me.pnlDesktop.Location = New System.Drawing.Point(0, 67)
         Me.pnlDesktop.Name = "pnlDesktop"
-        Me.pnlDesktop.Size = New System.Drawing.Size(1222, 588)
+        Me.pnlDesktop.Size = New System.Drawing.Size(1222, 584)
         Me.pnlDesktop.TabIndex = 3
         '
         'Form1
@@ -249,7 +249,7 @@ Partial Class Form1
     Friend WithEvents AboutToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents StatusStrip1 As StatusStrip
     Friend WithEvents pnlDesktop As Panel
-    Friend WithEvents ВыходToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents tlsAppExit As ToolStripMenuItem
     Friend WithEvents tlsCreateDeclaration As ToolStripMenuItem
     Friend WithEvents tlsCreatePerson As ToolStripMenuItem
     Friend WithEvents tlsmDeclarations As ToolStripMenuItem
