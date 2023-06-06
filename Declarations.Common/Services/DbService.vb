@@ -148,8 +148,17 @@ Public Class DbService
 				CONSTRAINT [PrimaryKey] PRIMARY KEY ([ID]));"
 
         'Create table Person
-        CreateTable(qr)
+        'CreateTable(qr)
 
+
+        qr = "CREATE TABLE Declaration(ID COUNTER, NumberTax Varchar(20), DateTax DATETIME, TaxNumber Varchar(4), DistrictTax Varchar(20), 
+						Comment Memo, PersonId INTEGER, PersonFIO Varchar(255),
+						SumAll Currency,SumTax	Currency,SumPension Currency,ExemptType Varchar(150), Exempt Currency,SumFinal Currency,
+				CompanyName Varchar(200), CompanyInn Varchar(20), CompanyAddress Varchar(200), CompanyChief Varchar(150), 
+				CompanyPhone Varchar(50), CONSTRAINT [PrimaryKey] PRIMARY KEY ([ID]));"
+
+        'Create table Declaration
+        CreateTable(qr)
 
     End Sub
 
@@ -195,7 +204,6 @@ Public Class DbService
         Return result
     End Function
 
-
     Public Function GetPersonTable() As DataTable
         Dim prTable As DataTable = New DataTable("Persons")
         Dim query As String
@@ -215,14 +223,6 @@ Public Class DbService
                 Dim hasRows = Reader.HasRows
 
                 prTable.Load(reader)
-                'While Reader.Read() = True
-                '    Dim obj1 = Reader.GetValue(0)
-                '    Dim obj2 = Reader.GetValue(1)
-                '    Dim obj3 = Reader.GetValue(2)
-                '    Dim obj4 = Reader.GetValue(3)
-                '    Dim sss As String = ""
-                'End While
-
             End Using
 
         Catch ex As Exception

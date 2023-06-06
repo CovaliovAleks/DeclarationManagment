@@ -24,10 +24,6 @@ Partial Class DeclarationForm
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.mtbDateDeclaration = New System.Windows.Forms.MaskedTextBox()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.tbCompany = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.TextBox6 = New System.Windows.Forms.TextBox()
@@ -44,12 +40,6 @@ Partial Class DeclarationForm
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.Label16 = New System.Windows.Forms.Label()
-        Me.Label15 = New System.Windows.Forms.Label()
-        Me.Label14 = New System.Windows.Forms.Label()
-        Me.TextBox10 = New System.Windows.Forms.TextBox()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.TextBox11 = New System.Windows.Forms.TextBox()
         Me.TextBox9 = New System.Windows.Forms.TextBox()
         Me.Label12 = New System.Windows.Forms.Label()
@@ -63,20 +53,39 @@ Partial Class DeclarationForm
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.btnCancel = New System.Windows.Forms.Button()
         Me.btnAddDeclaration = New System.Windows.Forms.Button()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.TextBox5 = New System.Windows.Forms.TextBox()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.TextBox7 = New System.Windows.Forms.TextBox()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.TextBox10 = New System.Windows.Forms.TextBox()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.TextBox13 = New System.Windows.Forms.TextBox()
+        Me.Label17 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox4.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.mtbDateDeclaration)
+        Me.GroupBox1.Controls.Add(Me.Label17)
+        Me.GroupBox1.Controls.Add(Me.TextBox13)
+        Me.GroupBox1.Controls.Add(Me.Label16)
+        Me.GroupBox1.Controls.Add(Me.TextBox10)
+        Me.GroupBox1.Controls.Add(Me.TextBox7)
+        Me.GroupBox1.Controls.Add(Me.Label15)
+        Me.GroupBox1.Controls.Add(Me.TextBox5)
+        Me.GroupBox1.Controls.Add(Me.Label14)
+        Me.GroupBox1.Controls.Add(Me.TextBox2)
+        Me.GroupBox1.Controls.Add(Me.Label11)
+        Me.GroupBox1.Controls.Add(Me.TextBox1)
         Me.GroupBox1.Controls.Add(Me.Label9)
-        Me.GroupBox1.Controls.Add(Me.Button3)
-        Me.GroupBox1.Controls.Add(Me.Button4)
-        Me.GroupBox1.Controls.Add(Me.tbCompany)
+        Me.GroupBox1.Controls.Add(Me.mtbDateDeclaration)
         Me.GroupBox1.Controls.Add(Me.Label7)
         Me.GroupBox1.Controls.Add(Me.ComboBox1)
         Me.GroupBox1.Controls.Add(Me.TextBox6)
@@ -94,91 +103,57 @@ Partial Class DeclarationForm
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(1084, 189)
+        Me.GroupBox1.Size = New System.Drawing.Size(1084, 297)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Данные налоговой декларации"
         '
         'mtbDateDeclaration
         '
-        Me.mtbDateDeclaration.Location = New System.Drawing.Point(195, 68)
+        Me.mtbDateDeclaration.Location = New System.Drawing.Point(511, 61)
         Me.mtbDateDeclaration.Mask = "00/00/0000"
         Me.mtbDateDeclaration.Name = "mtbDateDeclaration"
-        Me.mtbDateDeclaration.Size = New System.Drawing.Size(232, 28)
+        Me.mtbDateDeclaration.Size = New System.Drawing.Size(267, 28)
         Me.mtbDateDeclaration.TabIndex = 17
         Me.mtbDateDeclaration.ValidatingType = GetType(Date)
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(781, 39)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(95, 22)
-        Me.Label9.TabIndex = 16
-        Me.Label9.Text = "Компания"
-        '
-        'Button3
-        '
-        Me.Button3.Location = New System.Drawing.Point(1002, 66)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(36, 29)
-        Me.Button3.TabIndex = 15
-        Me.Button3.Text = "x"
-        Me.Button3.UseVisualStyleBackColor = True
-        '
-        'Button4
-        '
-        Me.Button4.Location = New System.Drawing.Point(969, 66)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(36, 29)
-        Me.Button4.TabIndex = 13
-        Me.Button4.Text = "...."
-        Me.Button4.UseVisualStyleBackColor = True
-        '
-        'tbCompany
-        '
-        Me.tbCompany.Location = New System.Drawing.Point(780, 66)
-        Me.tbCompany.Name = "tbCompany"
-        Me.tbCompany.Size = New System.Drawing.Size(190, 28)
-        Me.tbCompany.TabIndex = 14
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(183, 108)
+        Me.Label7.Location = New System.Drawing.Point(222, 170)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(137, 22)
+        Me.Label7.Size = New System.Drawing.Size(267, 22)
         Me.Label7.TabIndex = 12
-        Me.Label7.Text = "Схема расчета"
+        Me.Label7.Text = "Величина подоходного налога"
         '
         'ComboBox1
         '
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(186, 135)
+        Me.ComboBox1.Location = New System.Drawing.Point(222, 199)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(267, 30)
         Me.ComboBox1.TabIndex = 11
         '
         'TextBox6
         '
-        Me.TextBox6.Location = New System.Drawing.Point(460, 137)
+        Me.TextBox6.Location = New System.Drawing.Point(496, 201)
         Me.TextBox6.Name = "TextBox6"
-        Me.TextBox6.Size = New System.Drawing.Size(158, 28)
+        Me.TextBox6.Size = New System.Drawing.Size(282, 28)
         Me.TextBox6.TabIndex = 10
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(504, 109)
+        Me.Label6.Location = New System.Drawing.Point(495, 170)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(130, 22)
+        Me.Label6.Size = New System.Drawing.Size(283, 22)
         Me.Label6.TabIndex = 9
-        Me.Label6.Text = "Сумма налога"
+        Me.Label6.Text = "Отчисления в пенсионный фонд"
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(465, 39)
+        Me.Label5.Location = New System.Drawing.Point(17, 32)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(90, 22)
         Me.Label5.TabIndex = 8
@@ -186,7 +161,7 @@ Partial Class DeclarationForm
         '
         'btnClearPerson
         '
-        Me.btnClearPerson.Location = New System.Drawing.Point(729, 67)
+        Me.btnClearPerson.Location = New System.Drawing.Point(281, 60)
         Me.btnClearPerson.Name = "btnClearPerson"
         Me.btnClearPerson.Size = New System.Drawing.Size(36, 29)
         Me.btnClearPerson.TabIndex = 7
@@ -195,7 +170,7 @@ Partial Class DeclarationForm
         '
         'btnSelectPerson
         '
-        Me.btnSelectPerson.Location = New System.Drawing.Point(696, 67)
+        Me.btnSelectPerson.Location = New System.Drawing.Point(248, 60)
         Me.btnSelectPerson.Name = "btnSelectPerson"
         Me.btnSelectPerson.Size = New System.Drawing.Size(36, 29)
         Me.btnSelectPerson.TabIndex = 2
@@ -204,31 +179,31 @@ Partial Class DeclarationForm
         '
         'tbPerson
         '
-        Me.tbPerson.Location = New System.Drawing.Point(460, 67)
+        Me.tbPerson.Location = New System.Drawing.Point(12, 60)
         Me.tbPerson.Name = "tbPerson"
         Me.tbPerson.Size = New System.Drawing.Size(237, 28)
         Me.tbPerson.TabIndex = 6
         '
         'TextBox3
         '
-        Me.TextBox3.Location = New System.Drawing.Point(14, 135)
+        Me.TextBox3.Location = New System.Drawing.Point(14, 201)
         Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(158, 28)
+        Me.TextBox3.Size = New System.Drawing.Size(202, 28)
         Me.TextBox3.TabIndex = 5
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(11, 109)
+        Me.Label3.Location = New System.Drawing.Point(14, 172)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(94, 22)
+        Me.Label3.Size = New System.Drawing.Size(171, 22)
         Me.Label3.TabIndex = 4
-        Me.Label3.Text = "Сумма до"
+        Me.Label3.Text = "Полученная сумма"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(191, 42)
+        Me.Label2.Location = New System.Drawing.Point(507, 35)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(236, 22)
         Me.Label2.TabIndex = 2
@@ -236,7 +211,7 @@ Partial Class DeclarationForm
         '
         'tbNrDeclaration
         '
-        Me.tbNrDeclaration.Location = New System.Drawing.Point(16, 69)
+        Me.tbNrDeclaration.Location = New System.Drawing.Point(332, 62)
         Me.tbNrDeclaration.Name = "tbNrDeclaration"
         Me.tbNrDeclaration.Size = New System.Drawing.Size(157, 28)
         Me.tbNrDeclaration.TabIndex = 1
@@ -244,7 +219,7 @@ Partial Class DeclarationForm
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(12, 42)
+        Me.Label1.Location = New System.Drawing.Point(328, 35)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(137, 22)
         Me.Label1.TabIndex = 0
@@ -256,12 +231,12 @@ Partial Class DeclarationForm
         Me.GroupBox2.Controls.Add(Me.GroupBox3)
         Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Top
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox2.Location = New System.Drawing.Point(0, 189)
+        Me.GroupBox2.Location = New System.Drawing.Point(0, 297)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(1084, 278)
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Данные физ лица                   "
+        Me.GroupBox2.Text = "Данные компании"
         '
         'GroupBox5
         '
@@ -274,12 +249,6 @@ Partial Class DeclarationForm
         '
         'GroupBox3
         '
-        Me.GroupBox3.Controls.Add(Me.Label16)
-        Me.GroupBox3.Controls.Add(Me.Label15)
-        Me.GroupBox3.Controls.Add(Me.Label14)
-        Me.GroupBox3.Controls.Add(Me.TextBox10)
-        Me.GroupBox3.Controls.Add(Me.Label11)
-        Me.GroupBox3.Controls.Add(Me.PictureBox1)
         Me.GroupBox3.Controls.Add(Me.TextBox11)
         Me.GroupBox3.Controls.Add(Me.TextBox9)
         Me.GroupBox3.Controls.Add(Me.Label12)
@@ -297,136 +266,85 @@ Partial Class DeclarationForm
         Me.GroupBox3.TabIndex = 0
         Me.GroupBox3.TabStop = False
         '
-        'Label16
-        '
-        Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(804, 142)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(104, 22)
-        Me.Label16.TabIndex = 15
-        Me.Label16.Text = "Кем выдан"
-        '
-        'Label15
-        '
-        Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(804, 83)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(136, 22)
-        Me.Label15.TabIndex = 14
-        Me.Label15.Text = "Серия и номер"
-        '
-        'Label14
-        '
-        Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(804, 24)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(137, 22)
-        Me.Label14.TabIndex = 13
-        Me.Label14.Text = "Тип документа"
-        '
-        'TextBox10
-        '
-        Me.TextBox10.Location = New System.Drawing.Point(572, 170)
-        Me.TextBox10.Name = "TextBox10"
-        Me.TextBox10.Size = New System.Drawing.Size(190, 28)
-        Me.TextBox10.TabIndex = 11
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(572, 143)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(134, 22)
-        Me.Label11.TabIndex = 10
-        Me.Label11.Text = "Ултца, дом, кв"
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Location = New System.Drawing.Point(13, 34)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(156, 149)
-        Me.PictureBox1.TabIndex = 12
-        Me.PictureBox1.TabStop = False
-        '
         'TextBox11
         '
-        Me.TextBox11.Location = New System.Drawing.Point(568, 109)
+        Me.TextBox11.Location = New System.Drawing.Point(366, 102)
         Me.TextBox11.Name = "TextBox11"
-        Me.TextBox11.Size = New System.Drawing.Size(190, 28)
+        Me.TextBox11.Size = New System.Drawing.Size(363, 28)
         Me.TextBox11.TabIndex = 9
         '
         'TextBox9
         '
-        Me.TextBox9.Location = New System.Drawing.Point(188, 168)
+        Me.TextBox9.Location = New System.Drawing.Point(9, 170)
         Me.TextBox9.Name = "TextBox9"
-        Me.TextBox9.Size = New System.Drawing.Size(357, 28)
+        Me.TextBox9.Size = New System.Drawing.Size(321, 28)
         Me.TextBox9.TabIndex = 11
         '
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(568, 83)
+        Me.Label12.Location = New System.Drawing.Point(362, 77)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(166, 22)
+        Me.Label12.Size = New System.Drawing.Size(62, 22)
         Me.Label12.TabIndex = 8
-        Me.Label12.Text = "Населенный пункт"
+        Me.Label12.Text = "Адрес"
         '
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(188, 142)
+        Me.Label10.Location = New System.Drawing.Point(9, 142)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(89, 22)
+        Me.Label10.Size = New System.Drawing.Size(248, 22)
         Me.Label10.TabIndex = 10
-        Me.Label10.Text = "Отчество"
+        Me.Label10.Text = "ФИО Директора/Бухгалтера"
         '
         'TextBox8
         '
-        Me.TextBox8.Location = New System.Drawing.Point(188, 99)
+        Me.TextBox8.Location = New System.Drawing.Point(9, 102)
         Me.TextBox8.Name = "TextBox8"
-        Me.TextBox8.Size = New System.Drawing.Size(357, 28)
+        Me.TextBox8.Size = New System.Drawing.Size(321, 28)
         Me.TextBox8.TabIndex = 9
         '
         'TextBox12
         '
-        Me.TextBox12.Location = New System.Drawing.Point(569, 45)
+        Me.TextBox12.Location = New System.Drawing.Point(362, 45)
         Me.TextBox12.Name = "TextBox12"
-        Me.TextBox12.Size = New System.Drawing.Size(190, 28)
+        Me.TextBox12.Size = New System.Drawing.Size(367, 28)
         Me.TextBox12.TabIndex = 7
         '
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(569, 19)
+        Me.Label13.Location = New System.Drawing.Point(362, 19)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(69, 22)
+        Me.Label13.Size = New System.Drawing.Size(86, 22)
         Me.Label13.TabIndex = 6
-        Me.Label13.Text = "Регион"
+        Me.Label13.Text = "Телефон"
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(188, 73)
+        Me.Label8.Location = New System.Drawing.Point(9, 77)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(88, 22)
+        Me.Label8.Size = New System.Drawing.Size(49, 22)
         Me.Label8.TabIndex = 8
-        Me.Label8.Text = "Фамилия"
+        Me.Label8.Text = "ИНН"
         '
         'TextBox4
         '
-        Me.TextBox4.Location = New System.Drawing.Point(188, 41)
+        Me.TextBox4.Location = New System.Drawing.Point(9, 45)
         Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(357, 28)
+        Me.TextBox4.Size = New System.Drawing.Size(321, 28)
         Me.TextBox4.TabIndex = 7
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(188, 16)
+        Me.Label4.Location = New System.Drawing.Point(9, 20)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(46, 22)
+        Me.Label4.Size = New System.Drawing.Size(92, 22)
         Me.Label4.TabIndex = 6
-        Me.Label4.Text = "Имя"
+        Me.Label4.Text = "Название"
         '
         'GroupBox4
         '
@@ -459,6 +377,103 @@ Partial Class DeclarationForm
         Me.btnAddDeclaration.Text = "Add declaration"
         Me.btnAddDeclaration.UseVisualStyleBackColor = True
         '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(12, 127)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(305, 28)
+        Me.TextBox1.TabIndex = 19
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(12, 99)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(252, 22)
+        Me.Label9.TabIndex = 18
+        Me.Label9.Text = "Номер налоговой инспекции"
+        '
+        'TextBox2
+        '
+        Me.TextBox2.Location = New System.Drawing.Point(332, 127)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(305, 28)
+        Me.TextBox2.TabIndex = 21
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(332, 99)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(267, 22)
+        Me.Label11.TabIndex = 20
+        Me.Label11.Text = "Инспекция, где стоит на учете"
+        '
+        'TextBox5
+        '
+        Me.TextBox5.Location = New System.Drawing.Point(222, 262)
+        Me.TextBox5.Name = "TextBox5"
+        Me.TextBox5.Size = New System.Drawing.Size(267, 28)
+        Me.TextBox5.TabIndex = 23
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Location = New System.Drawing.Point(221, 236)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(154, 22)
+        Me.Label14.TabIndex = 22
+        Me.Label14.Text = "Название льготы"
+        '
+        'TextBox7
+        '
+        Me.TextBox7.Location = New System.Drawing.Point(495, 262)
+        Me.TextBox7.Name = "TextBox7"
+        Me.TextBox7.Size = New System.Drawing.Size(283, 28)
+        Me.TextBox7.TabIndex = 25
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Location = New System.Drawing.Point(494, 236)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(130, 22)
+        Me.Label15.TabIndex = 24
+        Me.Label15.Text = "Сумма льготы"
+        '
+        'TextBox10
+        '
+        Me.TextBox10.Location = New System.Drawing.Point(818, 62)
+        Me.TextBox10.Multiline = True
+        Me.TextBox10.Name = "TextBox10"
+        Me.TextBox10.Size = New System.Drawing.Size(254, 224)
+        Me.TextBox10.TabIndex = 26
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Location = New System.Drawing.Point(814, 32)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(116, 22)
+        Me.Label16.TabIndex = 27
+        Me.Label16.Text = "Примечания"
+        '
+        'TextBox13
+        '
+        Me.TextBox13.Location = New System.Drawing.Point(14, 262)
+        Me.TextBox13.Name = "TextBox13"
+        Me.TextBox13.Size = New System.Drawing.Size(201, 28)
+        Me.TextBox13.TabIndex = 12
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Location = New System.Drawing.Point(17, 235)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(136, 22)
+        Me.Label17.TabIndex = 28
+        Me.Label17.Text = "Сумма на руки"
+        '
         'DeclarationForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -474,7 +489,6 @@ Partial Class DeclarationForm
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox4.ResumeLayout(False)
         Me.ResumeLayout(False)
 
@@ -487,10 +501,6 @@ Partial Class DeclarationForm
     Friend WithEvents tbNrDeclaration As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents GroupBox2 As GroupBox
-    Friend WithEvents Label9 As Label
-    Friend WithEvents Button3 As Button
-    Friend WithEvents Button4 As Button
-    Friend WithEvents tbCompany As TextBox
     Friend WithEvents Label7 As Label
     Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents TextBox6 As TextBox
@@ -500,8 +510,6 @@ Partial Class DeclarationForm
     Friend WithEvents btnSelectPerson As Button
     Friend WithEvents tbPerson As TextBox
     Friend WithEvents GroupBox5 As GroupBox
-    Friend WithEvents TextBox10 As TextBox
-    Friend WithEvents Label11 As Label
     Friend WithEvents TextBox11 As TextBox
     Friend WithEvents Label12 As Label
     Friend WithEvents TextBox12 As TextBox
@@ -513,12 +521,20 @@ Partial Class DeclarationForm
     Friend WithEvents Label8 As Label
     Friend WithEvents TextBox4 As TextBox
     Friend WithEvents Label4 As Label
-    Friend WithEvents Label14 As Label
-    Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents Label16 As Label
-    Friend WithEvents Label15 As Label
     Friend WithEvents GroupBox4 As GroupBox
     Friend WithEvents btnCancel As Button
     Friend WithEvents btnAddDeclaration As Button
     Friend WithEvents mtbDateDeclaration As MaskedTextBox
+    Friend WithEvents Label16 As Label
+    Friend WithEvents TextBox10 As TextBox
+    Friend WithEvents TextBox7 As TextBox
+    Friend WithEvents Label15 As Label
+    Friend WithEvents TextBox5 As TextBox
+    Friend WithEvents Label14 As Label
+    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents Label11 As Label
+    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents Label9 As Label
+    Friend WithEvents Label17 As Label
+    Friend WithEvents TextBox13 As TextBox
 End Class
