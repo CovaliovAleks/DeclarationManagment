@@ -76,9 +76,6 @@ Public Class DbService
                     Dim sss As String = ""
                 End While
 
-
-
-
             End Using
 
         Catch ex As Exception
@@ -196,6 +193,93 @@ Public Class DbService
         End Try
 
         Return result
+    End Function
+
+
+    Public Function GetPersonTable() As DataTable
+        Dim prTable As DataTable = New DataTable("Persons")
+        Dim query As String
+
+        query = "SELECT * FROM person;"
+
+        Try
+            dbConn = New OleDb.OleDbConnection(dbConnString)
+            dbConn.Open()
+
+            Using cmd As New OleDbCommand()
+                cmd.Connection = dbConn
+                cmd.CommandText = query
+                Dim reader = cmd.ExecuteReader()
+
+                Dim numCols = Reader.FieldCount
+                Dim hasRows = Reader.HasRows
+
+                prTable.Load(reader)
+                'While Reader.Read() = True
+                '    Dim obj1 = Reader.GetValue(0)
+                '    Dim obj2 = Reader.GetValue(1)
+                '    Dim obj3 = Reader.GetValue(2)
+                '    Dim obj4 = Reader.GetValue(3)
+                '    Dim sss As String = ""
+                'End While
+
+            End Using
+
+        Catch ex As Exception
+            Dim msg As String = ex.Message
+        Finally
+            dbConn.Close()
+        End Try
+
+        Return prTable
+    End Function
+
+    Function GetPersons() As IEnumerable(Of Person)
+        Dim lstPesrons As New List(Of Person)
+
+        Dim query As String
+
+        query = "SELECT * FROM person;"
+
+        Try
+            dbConn = New OleDb.OleDbConnection(dbConnString)
+            dbConn.Open()
+
+            Using cmd As New OleDbCommand()
+                cmd.Connection = dbConn
+                cmd.CommandText = query
+                Dim reader = cmd.ExecuteReader()
+
+                Dim numCols = reader.FieldCount
+                Dim hasRows = reader.HasRows
+                While reader.Read() = True
+                    Dim item As New Person
+                    item.ID = reader.GetValue(0)
+                    item.INN = reader.GetValue(1)
+                    item.FirstName = reader.GetValue(2)
+                    item.SurName = reader.GetValue(3)
+                    item.Patronymic = reader.GetValue(4)
+                    'item.BornDate = reader.GetValue(5)
+                    'item.Photo = reader.GetValue(6)
+                    item.Phone = reader.GetValue(7)
+
+                    item.Region = reader.GetValue(8)
+                    item.City = reader.GetValue(9)
+                    item.Street = reader.GetValue(10)
+
+                    lstPesrons.Add(item)
+
+                End While
+
+            End Using
+
+        Catch ex As Exception
+            Dim msg As String = ex.Message
+        Finally
+            dbConn.Close()
+        End Try
+
+        Return lstPesrons
     End Function
 
     Function AddNewPerson(ByRef person As Person) As Person

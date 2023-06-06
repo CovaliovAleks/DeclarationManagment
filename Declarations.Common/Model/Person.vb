@@ -158,4 +158,10 @@ Public Class Person
         End Set
     End Property
 
+    Public ReadOnly Property FIO() As String
+        Get
+            Return FirstName + " " + SurName
+        End Get
+    End Property
+
 End Class

@@ -24,7 +24,7 @@ Public Class Form1
         '_dbService.DropTable()
         '_dbService.CreateAllTables()
 
-        personsForm = New PersonsForm()
+        personsForm = New PersonsForm(_dbService)
         declarationsForm = New DeclarationsForm()
         personForm = New PersonForm(_dbService)
         declarationForm = New DeclarationForm(_dbService)
@@ -70,7 +70,7 @@ Public Class Form1
         If activForm <> ActiveFormEnum.Persons Then
             activForm = ActiveFormEnum.Persons
             If personsForm Is Nothing Then
-                personsForm = New PersonsForm()
+                personsForm = New PersonsForm(_dbService)
             End If
             LoadForm(personsForm)
         End If
