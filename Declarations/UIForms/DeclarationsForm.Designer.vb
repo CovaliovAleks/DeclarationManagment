@@ -33,6 +33,7 @@ Partial Class DeclarationsForm
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.dgvDeclarations = New System.Windows.Forms.DataGridView()
+        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -144,7 +145,7 @@ Partial Class DeclarationsForm
         Me.dgvDeclarations.AllowUserToAddRows = False
         Me.dgvDeclarations.AllowUserToDeleteRows = False
         Me.dgvDeclarations.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvDeclarations.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column6, Me.Column2, Me.Column3, Me.Column4, Me.Column5})
+        Me.dgvDeclarations.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column7, Me.Column1, Me.Column6, Me.Column2, Me.Column3, Me.Column4, Me.Column5})
         Me.dgvDeclarations.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgvDeclarations.Location = New System.Drawing.Point(3, 18)
         Me.dgvDeclarations.MultiSelect = False
@@ -156,8 +157,19 @@ Partial Class DeclarationsForm
         Me.dgvDeclarations.Size = New System.Drawing.Size(976, 427)
         Me.dgvDeclarations.TabIndex = 0
         '
+        'Column7
+        '
+        Me.Column7.DataPropertyName = "Id"
+        Me.Column7.HeaderText = "Id"
+        Me.Column7.MinimumWidth = 6
+        Me.Column7.Name = "Column7"
+        Me.Column7.ReadOnly = True
+        Me.Column7.Visible = False
+        Me.Column7.Width = 125
+        '
         'Column1
         '
+        Me.Column1.DataPropertyName = "NrDeclaration"
         Me.Column1.HeaderText = "№ Декларации"
         Me.Column1.MinimumWidth = 6
         Me.Column1.Name = "Column1"
@@ -166,6 +178,7 @@ Partial Class DeclarationsForm
         '
         'Column6
         '
+        Me.Column6.DataPropertyName = "DateCreatedAt"
         Me.Column6.HeaderText = "Дата"
         Me.Column6.MinimumWidth = 6
         Me.Column6.Name = "Column6"
@@ -174,6 +187,7 @@ Partial Class DeclarationsForm
         '
         'Column2
         '
+        Me.Column2.DataPropertyName = "PersonFio"
         Me.Column2.HeaderText = "Физ. лицо"
         Me.Column2.MinimumWidth = 6
         Me.Column2.Name = "Column2"
@@ -190,6 +204,7 @@ Partial Class DeclarationsForm
         '
         'Column4
         '
+        Me.Column4.DataPropertyName = "SummaAll"
         Me.Column4.HeaderText = "Сумма"
         Me.Column4.MinimumWidth = 6
         Me.Column4.Name = "Column4"
@@ -229,15 +244,16 @@ Partial Class DeclarationsForm
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents dgvDeclarations As DataGridView
+    Friend WithEvents Button1 As Button
+    Friend WithEvents Label3 As Label
+    Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents Column7 As DataGridViewTextBoxColumn
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Column6 As DataGridViewTextBoxColumn
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
     Friend WithEvents Column3 As DataGridViewTextBoxColumn
     Friend WithEvents Column4 As DataGridViewTextBoxColumn
     Friend WithEvents Column5 As DataGridViewTextBoxColumn
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Label3 As Label
-    Friend WithEvents TextBox3 As TextBox
-    Friend WithEvents Label2 As Label
-    Friend WithEvents TextBox2 As TextBox
 End Class

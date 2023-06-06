@@ -2,14 +2,22 @@
 
 Public Class DeclarationsForm
     Private declaration As Declaration
-    Private listPersons As ListPersonsForm
     Dim _dbService As DbService
 
-    Public Sub New()
+    Dim lstDeclarations As List(Of Declaration)
+
+    Public Sub New(ByRef dbService As DbService)
         ' This call is required by the designer.
         InitializeComponent()
+
+        _dbService = dbService
+
     End Sub
 
+    Private Sub DeclarationsForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+        lstDeclarations = _dbService.GetDeclarations()
+        dgvDeclarations.DataSource = lstDeclarations
 
+    End Sub
 End Class

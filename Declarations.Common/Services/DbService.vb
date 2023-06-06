@@ -234,8 +234,57 @@ Public Class DbService
         Return prTable
     End Function
 
+    Function GetDeclarations() As IEnumerable(Of Declaration)
+        Dim lstDeclarations As New List(Of Declaration)
+        Dim query As String
+
+        query = "SELECT * FROM declaration where id =1;"
+        Try
+            dbConn = New OleDb.OleDbConnection(dbConnString)
+            dbConn.Open()
+
+            Using cmd As New OleDbCommand()
+                cmd.Connection = dbConn
+                cmd.CommandText = query
+                Dim reader = cmd.ExecuteReader()
+
+                Dim numCols = reader.FieldCount
+                Dim hasRows = reader.HasRows
+                While reader.Read() = True
+                    Dim item As New Declaration
+                    item.ID = reader.GetValue(0)
+                    item.NrDeclaration = reader.GetValue(1)
+                    item.DateCreatedAt = reader.GetValue(2)
+                    item.TaxNumber = reader.GetValue(3)
+                    item.TaxDistrict = reader.GetValue(4)
+                    item.Comment = reader.GetValue(5)
+                    item.PersonId = reader.GetValue(6)
+                    item.PersonFio = reader.GetValue(7)
+
+                    item.SummaAll = reader.GetValue(8)
+                    item.SummaTax = reader.GetValue(9)
+                    item.SummaPens = reader.GetValue(10)
+                    item.ExemptType = reader.GetValue(10)
+                    item.SummaExempt = reader.GetValue(10)
+
+                    lstDeclarations.Add(item)
+
+                End While
+
+            End Using
+
+        Catch ex As Exception
+            Dim msg As String = ex.Message
+        Finally
+            dbConn.Close()
+        End Try
+
+
+        Return lstDeclarations
+    End Function
+
     Function GetPersons() As IEnumerable(Of Person)
-        Dim lstPesrons As New List(Of Person)
+        Dim lstPerons As New List(Of Person)
 
         Dim query As String
 
@@ -267,7 +316,7 @@ Public Class DbService
                     item.City = reader.GetValue(9)
                     item.Street = reader.GetValue(10)
 
-                    lstPesrons.Add(item)
+                    lstPerons.Add(item)
 
                 End While
 
@@ -279,7 +328,7 @@ Public Class DbService
             dbConn.Close()
         End Try
 
-        Return lstPesrons
+        Return lstPerons
     End Function
 
     Function AddNewDeclaration(ByRef declaration As Declaration) As Declaration

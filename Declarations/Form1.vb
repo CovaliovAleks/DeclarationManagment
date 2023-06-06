@@ -25,7 +25,7 @@ Public Class Form1
         '_dbService.CreateAllTables()
 
         personsForm = New PersonsForm(_dbService)
-        declarationsForm = New DeclarationsForm()
+        declarationsForm = New DeclarationsForm(_dbService)
         personForm = New PersonForm(_dbService)
         declarationForm = New DeclarationForm(_dbService)
     End Sub
@@ -34,7 +34,7 @@ Public Class Form1
 
         If activForm = ActiveFormEnum.NotSelected Then
             If declarationsForm Is Nothing Then
-                declarationsForm = New DeclarationsForm()
+                declarationsForm = New DeclarationsForm(_dbService)
             End If
             form = declarationsForm
             activForm = ActiveFormEnum.Declarations
@@ -80,7 +80,7 @@ Public Class Form1
         If activForm <> ActiveFormEnum.Declarations Then
             activForm = ActiveFormEnum.Declarations
             If declarationsForm Is Nothing Then
-                declarationsForm = New DeclarationsForm()
+                declarationsForm = New DeclarationsForm(_dbService)
             End If
             LoadForm(declarationsForm)
         End If
