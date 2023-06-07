@@ -22,7 +22,16 @@
     Private _companyPhone As String
     Private _companyChief As String
 
-    Private Person As Person
+    Private _person As Person
+
+    Public Property Person() As Person
+        Get
+            Return _person
+        End Get
+        Set(value As Person)
+            _person = value
+        End Set
+    End Property
 
     Public Property ID() As Integer
         Get

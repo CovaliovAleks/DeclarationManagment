@@ -28,7 +28,7 @@ Public Class Form1
         personsForm = New PersonsForm(_dbService)
         declarationsForm = New DeclarationsForm(_dbService)
         personForm = New PersonForm(_dbService)
-        declarationForm = New DeclarationForm(_dbService)
+        declarationForm = New DeclarationForm(_dbService, Nothing)
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -99,22 +99,13 @@ Public Class Form1
 
     Private Sub tlsCreateDeclaration_Click(sender As Object, e As EventArgs) Handles tlsCreateDeclaration.Click
         If declarationForm Is Nothing Then
-            declarationForm = New DeclarationForm(_dbService)
+            declarationForm = New DeclarationForm(_dbService, Nothing)
         End If
 
         Dim dlgResult As DialogResult = declarationForm.ShowDialog()
         If dlgResult = DialogResult.OK Then
             declarationsForm.ResfreshDataGrid()
         End If
-
-
-        'If activForm <> ActiveFormEnum.AddDeclaration Then
-        '    activForm = ActiveFormEnum.AddDeclaration
-        '    If declarationForm Is Nothing Then
-        '        declarationForm = New DeclarationForm(_dbService)
-        '    End If
-        '    LoadForm(declarationForm)
-        'End If
     End Sub
 
     Private Sub tlsAppExit_Click(sender As Object, e As EventArgs) Handles tlsAppExit.Click

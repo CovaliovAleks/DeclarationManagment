@@ -43,7 +43,7 @@ Partial Class DeclarationForm
         Me.Label5 = New System.Windows.Forms.Label()
         Me.btnClearPerson = New System.Windows.Forms.Button()
         Me.btnSelectPerson = New System.Windows.Forms.Button()
-        Me.tbPerson = New System.Windows.Forms.TextBox()
+        Me.tbPersonFio = New System.Windows.Forms.TextBox()
         Me.tbSumAll = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -93,7 +93,7 @@ Partial Class DeclarationForm
         Me.GroupBox1.Controls.Add(Me.Label5)
         Me.GroupBox1.Controls.Add(Me.btnClearPerson)
         Me.GroupBox1.Controls.Add(Me.btnSelectPerson)
-        Me.GroupBox1.Controls.Add(Me.tbPerson)
+        Me.GroupBox1.Controls.Add(Me.tbPersonFio)
         Me.GroupBox1.Controls.Add(Me.tbSumAll)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.Label2)
@@ -281,12 +281,12 @@ Partial Class DeclarationForm
         Me.btnSelectPerson.Text = "...."
         Me.btnSelectPerson.UseVisualStyleBackColor = True
         '
-        'tbPerson
+        'tbPersonFio
         '
-        Me.tbPerson.Location = New System.Drawing.Point(12, 60)
-        Me.tbPerson.Name = "tbPerson"
-        Me.tbPerson.Size = New System.Drawing.Size(237, 28)
-        Me.tbPerson.TabIndex = 6
+        Me.tbPersonFio.Location = New System.Drawing.Point(12, 60)
+        Me.tbPersonFio.Name = "tbPersonFio"
+        Me.tbPersonFio.Size = New System.Drawing.Size(237, 28)
+        Me.tbPersonFio.TabIndex = 6
         '
         'tbSumAll
         '
@@ -516,7 +516,7 @@ Partial Class DeclarationForm
     Friend WithEvents Label5 As Label
     Friend WithEvents btnClearPerson As Button
     Friend WithEvents btnSelectPerson As Button
-    Friend WithEvents tbPerson As TextBox
+    Friend WithEvents tbPersonFio As TextBox
     Friend WithEvents GroupBox5 As GroupBox
     Friend WithEvents tbCompanyAddress As TextBox
     Friend WithEvents Label12 As Label

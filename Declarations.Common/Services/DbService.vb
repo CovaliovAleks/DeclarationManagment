@@ -252,6 +252,18 @@ Public Class DbService
 
         Return lstPerons
     End Function
+    Function UpdateDeclaration(ByRef declaration As Declaration) As Boolean
+        Dim qrResult As Boolean = False
+        Dim query As String
+        query = "INSERT INTO Declaration(NumberTax,DateTax,TaxNumber, DistrictTax,Comment, 
+                        PersonId, PersonFIO, SumAll, SumTax, SumPension, ExemptType, Exempt, SumFinal,
+                        CompanyName, CompanyInn, CompanyAddress, CompanyChief, CompanyPhone)
+                VALUES(@declnum, @taxdate, @taxnumber, @taxdist, @comment,
+                        @persid, @persfio, @sumaall, @sumatax,@sumapens, @exempttype, @exempt, @sumfinal,
+                        @cmpname, @cmpinn, @cmpaddress, @cmpchief, @cmpphone);"
+
+        Return qrResult
+    End Function
 
     Function AddNewDeclaration(ByRef declaration As Declaration) As Boolean
         Dim qrResult As Boolean = False

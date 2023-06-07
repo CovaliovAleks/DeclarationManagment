@@ -171,10 +171,6 @@
       <Project>{33b1a377-bba2-41fa-b4be-713cb3c2ae11}</Project>
       <Name>Declarations.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Declarations.Infrastructure\Declarations.Infrastructure.vbproj">
-      <Project>{79882211-8868-4695-b351-f00608dda991}</Project>
-      <Name>Declarations.Infrastructure</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Db\Database2.accdb">

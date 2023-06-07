@@ -2,23 +2,54 @@
 
 Public Class DeclarationForm
     Private declaration As Declaration
+    Dim personId As Integer = 0
+    Dim _person As Person
 
     Private listPersons As ListPersonsForm
     Dim _dbService As DbService
     Dim errMsg As String = "Следующие поля должны быть заполнены:" + vbNewLine
+    Dim state As Integer = 0
 
-    Public Sub New(ByRef dbService As DbService)
+
+    Public Sub New(ByRef dbService As DbService, ByRef slcDeclaration As Declaration)
         ' This call is required by the designer.
         InitializeComponent()
 
         _dbService = dbService
-        declaration = New Declaration()
+        btnAddDeclaration.Text = "Добавить декларацию"
+        declaration = slcDeclaration
+
+        If (slcDeclaration IsNot Nothing) Then
+            state = 1
+            btnAddDeclaration.Text = "Сохранить изменения"
+            ShowDeclarationData()
+        Else
+            state = 0
+        End If
 
     End Sub
 
     Private Sub DeclarationForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         mtbDateDeclaration.Text = DateTime.Today.ToString("dd.MM.yyyy")
     End Sub
+
+    Private Sub ShowDeclarationData()
+        If declaration.Person IsNot Nothing Then
+            _person = declaration.Person
+            personId = _person.ID
+        End If
+
+
+        tbNrDeclaration.Text = declaration.NrDeclaration
+        mtbDateDeclaration.Text = declaration.DateCreatedAt
+        tbTaxNumber.Text = declaration.TaxNumber
+        tbTaxDistrict.Text = declaration.TaxDistrict
+        tbComments.Text = declaration.Comment
+        tbPersonFio.Text = declaration.PersonFio
+        declaration.PersonId = personId
+
+    End Sub
+
     Private Sub btnSelectPerson_Click(sender As Object, e As EventArgs) Handles btnSelectPerson.Click
         If (listPersons Is Nothing) Then
             listPersons = New ListPersonsForm()
@@ -44,6 +75,7 @@ Public Class DeclarationForm
     Private Sub btnAddDeclaration_Click(sender As Object, e As EventArgs) Handles btnAddDeclaration.Click
         Dim result As Boolean = False
 
+        declaration = New Declaration()
         declaration.ID = 0
         declaration.NrDeclaration = Strings.Trim(tbNrDeclaration.Text)
         declaration.DateCreatedAt = Date.Today 'Date.Parse(mtbDateDeclaration.Text)
@@ -51,7 +83,7 @@ Public Class DeclarationForm
         declaration.TaxDistrict = Trim(tbTaxDistrict.Text)
         declaration.Comment = Trim(tbComments.Text)
         'Need to get from obj person
-        declaration.PersonFio = ""
+        declaration.PersonFio = Trim(tbPersonFio.Text)
         declaration.PersonId = 0
 
         Dim sumAll As Double = 0
@@ -85,7 +117,13 @@ Public Class DeclarationForm
         Dim valid As Boolean = ValidateDeclarationBeforeSave(declaration)
 
         If valid = True Then
-            result = _dbService.AddNewDeclaration(declaration)
+            If state = 0 Then
+                result = _dbService.AddNewDeclaration(declaration)
+            Else
+                result = _dbService.UpdateDeclaration(declaration)
+            End If
+
+
             If (result = True) Then
                 Me.DialogResult = DialogResult.OK
             Else
@@ -95,7 +133,10 @@ Public Class DeclarationForm
         Else
             MessageBox.Show(errMsg)
         End If
+
+
     End Sub
+
 
     Private Function ValidateDeclarationBeforeSave(ByRef declaration As Declaration) As Boolean
         Dim result As Boolean = True
