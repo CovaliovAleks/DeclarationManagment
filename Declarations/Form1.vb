@@ -30,7 +30,7 @@ Public Class Form1
 
         personsForm = New PersonsForm(_dbService)
         declarationsForm = New DeclarationsForm(_dbService)
-        personForm = New PersonForm(_dbService)
+        personForm = New PersonForm(_dbService, Nothing)
         declarationForm = New DeclarationForm(_dbService, Nothing)
     End Sub
 
@@ -94,7 +94,7 @@ Public Class Form1
         If activForm <> ActiveFormEnum.AddPerson Then
             activForm = ActiveFormEnum.AddPerson
             If personForm Is Nothing Then
-                personForm = New PersonForm(_dbService)
+                personForm = New PersonForm(_dbService, Nothing)
             End If
             LoadForm(personForm)
         End If

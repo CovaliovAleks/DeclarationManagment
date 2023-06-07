@@ -23,43 +23,35 @@ Partial Class PersonsForm
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.grbFilters = New System.Windows.Forms.GroupBox()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.btnFiltrRun = New System.Windows.Forms.Button()
+        Me.tbFilter = New System.Windows.Forms.TextBox()
         Me.grbInfo = New System.Windows.Forms.GroupBox()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.tbDocument = New System.Windows.Forms.TextBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.tbINN = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.tbAddress = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.tbPhone = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.grbData = New System.Windows.Forms.GroupBox()
         Me.dgvPerson = New System.Windows.Forms.DataGridView()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.grbFilters.SuspendLayout()
         Me.grbInfo.SuspendLayout()
-        Me.GroupBox2.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grbData.SuspendLayout()
         CType(Me.dgvPerson, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'grbFilters
         '
-        Me.grbFilters.Controls.Add(Me.Button1)
-        Me.grbFilters.Controls.Add(Me.TextBox1)
+        Me.grbFilters.Controls.Add(Me.btnFiltrRun)
+        Me.grbFilters.Controls.Add(Me.tbFilter)
         Me.grbFilters.Dock = System.Windows.Forms.DockStyle.Top
         Me.grbFilters.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.grbFilters.Location = New System.Drawing.Point(0, 0)
@@ -67,28 +59,28 @@ Partial Class PersonsForm
         Me.grbFilters.Size = New System.Drawing.Size(1021, 82)
         Me.grbFilters.TabIndex = 1
         Me.grbFilters.TabStop = False
-        Me.grbFilters.Text = "Фильтры"
+        Me.grbFilters.Text = "Фильтр"
         '
-        'Button1
+        'btnFiltrRun
         '
-        Me.Button1.Location = New System.Drawing.Point(603, 24)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 34)
-        Me.Button1.TabIndex = 1
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnFiltrRun.Location = New System.Drawing.Point(603, 24)
+        Me.btnFiltrRun.Name = "btnFiltrRun"
+        Me.btnFiltrRun.Size = New System.Drawing.Size(155, 34)
+        Me.btnFiltrRun.TabIndex = 1
+        Me.btnFiltrRun.Text = "Фильтровать"
+        Me.btnFiltrRun.UseVisualStyleBackColor = True
         '
-        'TextBox1
+        'tbFilter
         '
-        Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(6, 27)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(577, 30)
-        Me.TextBox1.TabIndex = 0
+        Me.tbFilter.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbFilter.Location = New System.Drawing.Point(6, 27)
+        Me.tbFilter.MaxLength = 20
+        Me.tbFilter.Name = "tbFilter"
+        Me.tbFilter.Size = New System.Drawing.Size(577, 30)
+        Me.tbFilter.TabIndex = 0
         '
         'grbInfo
         '
-        Me.grbInfo.Controls.Add(Me.GroupBox2)
         Me.grbInfo.Controls.Add(Me.GroupBox1)
         Me.grbInfo.Dock = System.Windows.Forms.DockStyle.Right
         Me.grbInfo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -99,95 +91,60 @@ Partial Class PersonsForm
         Me.grbInfo.TabStop = False
         Me.grbInfo.Text = "Дополнительно"
         '
-        'GroupBox2
-        '
-        Me.GroupBox2.Controls.Add(Me.DataGridView1)
-        Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox2.Location = New System.Drawing.Point(3, 279)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(337, 268)
-        Me.GroupBox2.TabIndex = 1
-        Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Декларации"
-        '
-        'DataGridView1
-        '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4})
-        Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DataGridView1.Location = New System.Drawing.Point(3, 23)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.RowHeadersWidth = 51
-        Me.DataGridView1.RowTemplate.Height = 24
-        Me.DataGridView1.Size = New System.Drawing.Size(331, 242)
-        Me.DataGridView1.TabIndex = 0
-        '
-        'DataGridViewTextBoxColumn1
-        '
-        Me.DataGridViewTextBoxColumn1.HeaderText = "№"
-        Me.DataGridViewTextBoxColumn1.MinimumWidth = 6
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        Me.DataGridViewTextBoxColumn1.Width = 125
-        '
-        'DataGridViewTextBoxColumn2
-        '
-        Me.DataGridViewTextBoxColumn2.HeaderText = "Дата"
-        Me.DataGridViewTextBoxColumn2.MinimumWidth = 6
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        Me.DataGridViewTextBoxColumn2.Width = 125
-        '
-        'DataGridViewTextBoxColumn3
-        '
-        Me.DataGridViewTextBoxColumn3.HeaderText = "Сумма"
-        Me.DataGridViewTextBoxColumn3.MinimumWidth = 6
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        Me.DataGridViewTextBoxColumn3.Width = 125
-        '
-        'DataGridViewTextBoxColumn4
-        '
-        Me.DataGridViewTextBoxColumn4.HeaderText = "Налог"
-        Me.DataGridViewTextBoxColumn4.MinimumWidth = 6
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        Me.DataGridViewTextBoxColumn4.Width = 125
-        '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.tbDocument)
+        Me.GroupBox1.Controls.Add(Me.Label4)
+        Me.GroupBox1.Controls.Add(Me.tbINN)
         Me.GroupBox1.Controls.Add(Me.Label3)
-        Me.GroupBox1.Controls.Add(Me.PictureBox1)
         Me.GroupBox1.Controls.Add(Me.tbAddress)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.tbPhone)
         Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.Location = New System.Drawing.Point(3, 23)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(337, 256)
+        Me.GroupBox1.Size = New System.Drawing.Size(337, 524)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
+        '
+        'tbDocument
+        '
+        Me.tbDocument.Location = New System.Drawing.Point(94, 143)
+        Me.tbDocument.Name = "tbDocument"
+        Me.tbDocument.Size = New System.Drawing.Size(234, 27)
+        Me.tbDocument.TabIndex = 7
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(0, 146)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(91, 20)
+        Me.Label4.TabIndex = 6
+        Me.Label4.Text = "Документ"
+        '
+        'tbINN
+        '
+        Me.tbINN.Location = New System.Drawing.Point(94, 22)
+        Me.tbINN.Name = "tbINN"
+        Me.tbINN.Size = New System.Drawing.Size(234, 27)
+        Me.tbINN.TabIndex = 5
         '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(0, 23)
+        Me.Label3.Location = New System.Drawing.Point(33, 25)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(55, 20)
-        Me.Label3.TabIndex = 5
-        Me.Label3.Text = "Фото"
-        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Location = New System.Drawing.Point(94, 23)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(180, 144)
-        Me.PictureBox1.TabIndex = 4
-        Me.PictureBox1.TabStop = False
+        Me.Label3.Size = New System.Drawing.Size(46, 20)
+        Me.Label3.TabIndex = 4
+        Me.Label3.Text = "ИНН"
         '
         'tbAddress
         '
-        Me.tbAddress.Location = New System.Drawing.Point(94, 217)
+        Me.tbAddress.Location = New System.Drawing.Point(94, 101)
         Me.tbAddress.Name = "tbAddress"
         Me.tbAddress.Size = New System.Drawing.Size(234, 27)
         Me.tbAddress.TabIndex = 3
@@ -195,7 +152,7 @@ Partial Class PersonsForm
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(15, 217)
+        Me.Label2.Location = New System.Drawing.Point(22, 101)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(62, 20)
         Me.Label2.TabIndex = 2
@@ -203,7 +160,7 @@ Partial Class PersonsForm
         '
         'tbPhone
         '
-        Me.tbPhone.Location = New System.Drawing.Point(94, 173)
+        Me.tbPhone.Location = New System.Drawing.Point(94, 57)
         Me.tbPhone.Name = "tbPhone"
         Me.tbPhone.Size = New System.Drawing.Size(234, 27)
         Me.tbPhone.TabIndex = 1
@@ -212,7 +169,7 @@ Partial Class PersonsForm
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(3, 176)
+        Me.Label1.Location = New System.Drawing.Point(3, 62)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(85, 20)
         Me.Label1.TabIndex = 0
@@ -234,7 +191,7 @@ Partial Class PersonsForm
         Me.dgvPerson.AllowUserToAddRows = False
         Me.dgvPerson.AllowUserToDeleteRows = False
         Me.dgvPerson.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvPerson.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column5, Me.Column2, Me.Column3, Me.Column4})
+        Me.dgvPerson.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column5, Me.Column1, Me.Column2, Me.Column3})
         Me.dgvPerson.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgvPerson.Location = New System.Drawing.Point(3, 23)
         Me.dgvPerson.MultiSelect = False
@@ -246,15 +203,6 @@ Partial Class PersonsForm
         Me.dgvPerson.Size = New System.Drawing.Size(672, 524)
         Me.dgvPerson.TabIndex = 0
         '
-        'Column1
-        '
-        Me.Column1.DataPropertyName = "INN"
-        Me.Column1.HeaderText = "ИНН"
-        Me.Column1.MinimumWidth = 6
-        Me.Column1.Name = "Column1"
-        Me.Column1.ReadOnly = True
-        Me.Column1.Width = 125
-        '
         'Column5
         '
         Me.Column5.DataPropertyName = "ID"
@@ -265,6 +213,15 @@ Partial Class PersonsForm
         Me.Column5.Visible = False
         Me.Column5.Width = 125
         '
+        'Column1
+        '
+        Me.Column1.DataPropertyName = "INN"
+        Me.Column1.HeaderText = "ИНН"
+        Me.Column1.MinimumWidth = 6
+        Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
+        Me.Column1.Width = 125
+        '
         'Column2
         '
         Me.Column2.DataPropertyName = "FIO"
@@ -272,24 +229,16 @@ Partial Class PersonsForm
         Me.Column2.MinimumWidth = 6
         Me.Column2.Name = "Column2"
         Me.Column2.ReadOnly = True
-        Me.Column2.Width = 180
+        Me.Column2.Width = 210
         '
         'Column3
         '
+        Me.Column3.DataPropertyName = "BornDate"
         Me.Column3.HeaderText = "Дата рождения"
         Me.Column3.MinimumWidth = 6
         Me.Column3.Name = "Column3"
         Me.Column3.ReadOnly = True
-        Me.Column3.Width = 150
-        '
-        'Column4
-        '
-        Me.Column4.DataPropertyName = "Region"
-        Me.Column4.HeaderText = "Адрес"
-        Me.Column4.MinimumWidth = 6
-        Me.Column4.Name = "Column4"
-        Me.Column4.ReadOnly = True
-        Me.Column4.Width = 150
+        Me.Column3.Width = 170
         '
         'PersonsForm
         '
@@ -305,11 +254,8 @@ Partial Class PersonsForm
         Me.grbFilters.ResumeLayout(False)
         Me.grbFilters.PerformLayout()
         Me.grbInfo.ResumeLayout(False)
-        Me.GroupBox2.ResumeLayout(False)
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.grbData.ResumeLayout(False)
         CType(Me.dgvPerson, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -317,27 +263,22 @@ Partial Class PersonsForm
     End Sub
 
     Friend WithEvents grbFilters As GroupBox
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents Button1 As Button
+    Friend WithEvents tbFilter As TextBox
+    Friend WithEvents btnFiltrRun As Button
     Friend WithEvents grbInfo As GroupBox
     Friend WithEvents grbData As GroupBox
     Friend WithEvents dgvPerson As DataGridView
-    Friend WithEvents GroupBox2 As GroupBox
-    Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents Label1 As Label
-    Friend WithEvents Label3 As Label
-    Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents tbAddress As TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents tbPhone As TextBox
-    Friend WithEvents Column1 As DataGridViewTextBoxColumn
+    Friend WithEvents tbDocument As TextBox
+    Friend WithEvents Label4 As Label
+    Friend WithEvents tbINN As TextBox
+    Friend WithEvents Label3 As Label
     Friend WithEvents Column5 As DataGridViewTextBoxColumn
+    Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
     Friend WithEvents Column3 As DataGridViewTextBoxColumn
-    Friend WithEvents Column4 As DataGridViewTextBoxColumn
 End Class

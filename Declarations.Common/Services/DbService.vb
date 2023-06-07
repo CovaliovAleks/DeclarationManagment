@@ -217,13 +217,21 @@ Public Class DbService
                     item.FirstName = reader.GetValue(2)
                     item.SurName = reader.GetValue(3)
                     item.Patronymic = reader.GetValue(4)
-                    'item.BornDate = reader.GetValue(5)
-                    'item.Photo = reader.GetValue(6)
+                    If Not reader.IsDBNull(5) Then
+                        item.BornDate = reader.GetValue(5)
+                    End If
                     item.Phone = reader.GetValue(7)
 
                     item.Region = reader.GetValue(8)
                     item.City = reader.GetValue(9)
                     item.Street = reader.GetValue(10)
+
+                    item.TypeDoc = reader.GetValue(11)
+                    item.SeriaNumber = reader.GetValue(12)
+                    item.IssuedBy = reader.GetValue(13)
+                    If Not reader.IsDBNull(14) Then
+                        item.IssueDate = reader.GetValue(14)
+                    End If
 
                     lstPerons.Add(item)
 
@@ -337,24 +345,14 @@ Public Class DbService
         Return qrResult
     End Function
 
-    Function AddNewPerson(ByRef person As Person) As Person
+    Function AddNewPerson(ByRef person As Person) As Boolean
+        Dim qrResult As Boolean = False
         Dim query As String
 
-        'Dim sb = New StringBuilder("INSERT INTO person(INN,FirstName,LastName, Patronymic")
-        'If person.BornDate IsNot Nothing Then
-        'End If
-        '    query = "INSERT INTO person(INN,FirstName,LastName, Patronymic,born, Photo, Phone, 
-        'Region, City, Street, TypeDocument, SeriaNumber, IssuedBy, DocIssueDate)
-        '            VALUES(@inn, @first, @last, patronymic, @born,@photo, @phone);"
-        '   query = "INSERT INTO person(INN,FirstName,LastName, Patronymic,Phone, Region, City, Street,  
-        'TypeDocument, SeriaNumber, IssuedBy, born, Photo,DocIssueDate)
-        '           VALUES(@inn, @first, @last, patronymic, @born,@photo, @phone);"
-
-
         query = "INSERT INTO person(INN,FirstName,LastName, Patronymic,Phone, Region, City, Street,  
-				 TypeDocument, SeriaNumber, IssuedBy)
+				 TypeDocument, SeriaNumber, IssuedBy, born,DocIssueDate)
                 VALUES(@inn, @first, @last, @patronymic, @phone, @region, @city, @street, @typDoc,
-                        @ser, @issby);"
+                        @ser, @issby, @born, @issdate);"
 
         Try
             dbConn = New OleDb.OleDbConnection(dbConnString)
@@ -376,6 +374,8 @@ Public Class DbService
                     cmd.Parameters.AddWithValue("@typDoc", person.TypeDoc)
                     cmd.Parameters.AddWithValue("@ser", person.SeriaNumber)
                     cmd.Parameters.AddWithValue("@issby", person.IssuedBy)
+                    cmd.Parameters.AddWithValue("@born", person.BornDate)
+                    cmd.Parameters.AddWithValue("@issdate", person.IssueDate)
 
                     cmd.ExecuteNonQuery()
                     Console.WriteLine("Inserted.")
@@ -392,10 +392,47 @@ Public Class DbService
 
 
 
-        Return person
+        Return qrResult
     End Function
 
+    Function UpdatePerson(ByRef prs As Person) As Boolean
+        Dim qrResult As Boolean = False
+        Dim query As String
+        query = "UPDATE Person SET INN='" + prs.INN + "',FirstName='" + prs.FirstName + "'" +
+            ",LastName='" + prs.SurName + "',Patronymic='" + prs.Patronymic + "',Phone='" + prs.Phone + "'" +
+            ",Region='" + prs.Region + "', City='" + prs.City + "'" +
+            ",Street='" + prs.Street + "', TypeDocument='" + prs.TypeDoc + "'" +
+            ",SeriaNumber='" + prs.SeriaNumber + "', IssuedBy='" + prs.IssuedBy + "'" +
+            ", born='" + prs.BornDate + "', DocIssueDate = '" + prs.IssueDate + "'" +
+            " WHERE ID = " + prs.ID.ToString() + "; "
 
+        'Dim ms As New IO.MemoryStream()
+
+        Try
+            dbConn = New OleDb.OleDbConnection(dbConnString)
+            dbConn.Open()
+
+            Using cmd As New OleDbCommand()
+                cmd.Connection = dbConn
+                cmd.CommandType = CommandType.Text
+                cmd.CommandText = query
+                Try
+                    cmd.ExecuteNonQuery()
+                    'Console.WriteLine("Updated.")
+                    qrResult = True
+                Catch ex As Exception
+                    Console.WriteLine(ex.Message)
+                End Try
+            End Using
+
+        Catch ex As Exception
+            Dim msg As String = ex.Message
+        Finally
+            dbConn.Close()
+        End Try
+
+        Return qrResult
+    End Function
 
     Public Sub DropTable()
         Dim result As Boolean = False

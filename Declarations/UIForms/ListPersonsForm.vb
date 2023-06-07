@@ -52,7 +52,7 @@ Public Class ListPersonsForm
         Dim personForm As PersonForm = Nothing
 
         If personForm Is Nothing Then
-            personForm = New PersonForm(_dbService)
+            personForm = New PersonForm(_dbService, Nothing)
         End If
 
         Dim dlgresult As DialogResult = personForm.ShowDialog()

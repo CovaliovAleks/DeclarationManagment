@@ -20,7 +20,6 @@ Public Class Person
     Private _issuedBy As String
     Private _issueDate As Date
 
-
     Public Property ID() As Integer
         Get
             Return _id

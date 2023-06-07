@@ -3,19 +3,33 @@
 Public Class PersonForm
     Dim _dbService As DbService
     Dim _person As Person
+    Dim errMsg As String = "Следующие поля должны быть заполнены:" + vbNewLine
+    Dim state As Integer = 0
 
-    Public Sub New(ByRef dbService As DbService)
+    Public Sub New(ByRef dbService As DbService, ByRef slcPerson As Person)
         ' This call is required by the designer.
         InitializeComponent()
+        btnAddPerson.Text = "Добавить"
 
         _dbService = dbService
-        _person = New Person()
-
+        _person = slcPerson
+        If (slcPerson IsNot Nothing) Then
+            state = 1
+            btnAddPerson.Text = "Сохранить изменения"
+            ShowPersonData()
+        Else
+            state = 0
+        End If
     End Sub
 
     Private Sub btnAddPerson_Click(sender As Object, e As EventArgs) Handles btnAddPerson.Click
+        Dim result As Boolean = False
 
-        _person.ID = 0
+        If state = 0 Then
+            _person = New Person()
+            _person.ID = 0
+        End If
+
         _person.INN = Trim(tbInn.Text)
         _person.FirstName = Trim(tbName.Text)
         _person.SurName = Trim(tbSurname.Text)
@@ -23,9 +37,6 @@ Public Class PersonForm
         _person.Phone = Trim(tbPhone.Text)
         If Not String.IsNullOrEmpty(mtbBornDate.Text) Then
             _person.BornDate = Date.Parse(mtbBornDate.Text)
-        End If
-        If pbPhoto.Image IsNot Nothing Then
-            _person.Photo = pbPhoto.Image
         End If
 
         _person.Region = Trim(tbRegion.Text)
@@ -35,23 +46,60 @@ Public Class PersonForm
         _person.TypeDoc = Trim(tbTypeDoc.Text)
         _person.SeriaNumber = Trim(tbSeriaNum.Text)
         _person.IssuedBy = Trim(tbIssued.Text)
-
-        _dbService.AddNewPerson(_person)
-
-    End Sub
-
-    Sub ValidateFields()
-
-
-
-    End Sub
-
-    Private Sub btnSelectImage_Click(sender As Object, e As EventArgs) Handles btnSelectImage.Click
-        Dim dialog As New OpenFileDialog()
-        dialog.Title = "Browse Picture"
-        dialog.Filter = "Image Files(*.BMP;*.JPG;*.GIF;*.PNG)|*.BMP;*.JPG;*.GIF;*.PNG"
-        If dialog.ShowDialog() = Windows.Forms.DialogResult.OK Then
-            pbPhoto.Image = Image.FromFile(dialog.FileName)
+        _person.SeriaNumber = Trim(tbSeriaNum.Text)
+        If Not String.IsNullOrEmpty(mtbDocIssued.Text) Then
+            _person.IssueDate = Date.Parse(mtbDocIssued.Text)
         End If
+
+        Dim valid As Boolean = ValidateFields()
+        If valid = True Then
+            If state = 0 Then
+                result = _dbService.AddNewPerson(_person)
+            Else
+                result = _dbService.UpdatePerson(_person)
+            End If
+            If (result = True) Then
+                Me.DialogResult = DialogResult.OK
+            Else
+                Me.DialogResult = DialogResult.No
+            End If
+            Me.Close()
+        Else
+            MessageBox.Show(errMsg)
+        End If
+
+    End Sub
+
+    Sub ShowPersonData()
+        tbInn.Text = _person.INN
+        tbName.Text = _person.FirstName
+        tbSurname.Text = _person.SurName
+        tbPatronimyc.Text = _person.Patronymic
+        mtbBornDate.Text = _person.BornDate.ToString("dd.MM.yyyy")
+        tbPhone.Text = _person.Phone
+        If _person.Photo IsNot Nothing Then
+
+        End If
+
+        tbRegion.Text = _person.Region
+        tbCity.Text = _person.City
+        tbStreet.Text = _person.Street
+
+        tbTypeDoc.Text = _person.TypeDoc
+        mtbDocIssued.Text = _person.IssueDate.ToString("dd.MM.yyyy")
+        tbIssued.Text = _person.IssuedBy
+        tbSeriaNum.Text = _person.SeriaNumber
+
+    End Sub
+
+    Function ValidateFields() As Boolean
+        Dim result As Boolean = True
+
+
+        Return result
+    End Function
+    Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
+        Me.DialogResult = DialogResult.Cancel
+        Me.Close()
     End Sub
 End Class

@@ -29,29 +29,16 @@ Public Class DeclarationsForm
     End Sub
 
     Private Sub dgvDeclarations_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles dgvDeclarations.MouseDoubleClick
-        'Dim crRow = dgvDeclarations.CurrentRow
-        'Dim rwIndex = dgvDeclarations.CurrentRow.Index
-        'Dim row = dgvDeclarations.Rows(rwIndex)
-
         Dim obj = dgvDeclarations.SelectedRows(0).DataBoundItem
         _declarationForm = New DeclarationForm(_dbService, obj)
         Dim dlgResult As DialogResult = _declarationForm.ShowDialog()
 
-        _declarationForm.Dispose()
+        '_declarationForm.Dispose()
 
         ResfreshDataGrid()
-
-
     End Sub
 
     Private Sub dgvDeclarations_SelectionChanged(sender As Object, e As EventArgs) Handles dgvDeclarations.SelectionChanged
-        'Dim rowIndex As Integer = 
-        'dgvDeclarations.
-
-        'Dim rows = dgvDeclarations.SelectedRows
-        'Dim dgvRow = rows.Item(0)
-
-
 
 
     End Sub

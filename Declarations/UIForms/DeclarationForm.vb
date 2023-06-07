@@ -41,7 +41,6 @@ Public Class DeclarationForm
             personFio = _person.FIO
         End If
 
-
         tbNrDeclaration.Text = declaration.NrDeclaration
         mtbDateDeclaration.Text = declaration.DateCreatedAt.ToString("dd.MM.yyyy")
         tbTaxNumber.Text = declaration.TaxNumber
@@ -161,7 +160,6 @@ Public Class DeclarationForm
 
 
     End Sub
-
 
     Private Function ValidateDeclarationBeforeSave(ByRef declaration As Declaration) As Boolean
         Dim result As Boolean = True

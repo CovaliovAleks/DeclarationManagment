@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Form1
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Form1
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
@@ -42,8 +42,7 @@ Partial Class Form1
         Me.WToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.tlsmDeclarations = New System.Windows.Forms.ToolStripMenuItem()
         Me.tlsPersons = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ОПрограммеToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tlsAboutApp = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.pnlDesktop = New System.Windows.Forms.Panel()
         Me.ToolStrip1.SuspendLayout()
@@ -128,7 +127,7 @@ Partial Class Form1
         'MenuStrip1
         '
         Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.SettingsToolStripMenuItem, Me.WToolStripMenuItem, Me.AboutToolStripMenuItem, Me.ОПрограммеToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.SettingsToolStripMenuItem, Me.WToolStripMenuItem, Me.tlsAboutApp})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(1222, 36)
@@ -146,7 +145,7 @@ Partial Class Form1
         'tlsAppExit
         '
         Me.tlsAppExit.Name = "tlsAppExit"
-        Me.tlsAppExit.Size = New System.Drawing.Size(159, 32)
+        Me.tlsAppExit.Size = New System.Drawing.Size(224, 32)
         Me.tlsAppExit.Text = "Выход"
         '
         'SettingsToolStripMenuItem
@@ -189,17 +188,12 @@ Partial Class Form1
         Me.tlsPersons.Size = New System.Drawing.Size(322, 32)
         Me.tlsPersons.Text = "Физические лица"
         '
-        'AboutToolStripMenuItem
+        'tlsAboutApp
         '
-        Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(98, 32)
-        Me.AboutToolStripMenuItem.Text = "Настройки"
-        '
-        'ОПрограммеToolStripMenuItem
-        '
-        Me.ОПрограммеToolStripMenuItem.Name = "ОПрограммеToolStripMenuItem"
-        Me.ОПрограммеToolStripMenuItem.Size = New System.Drawing.Size(118, 32)
-        Me.ОПрограммеToolStripMenuItem.Text = "О программе"
+        Me.tlsAboutApp.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tlsAboutApp.Name = "tlsAboutApp"
+        Me.tlsAboutApp.Size = New System.Drawing.Size(154, 32)
+        Me.tlsAboutApp.Text = "О программе"
         '
         'StatusStrip1
         '
@@ -246,7 +240,7 @@ Partial Class Form1
     Friend WithEvents FileToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SettingsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents WToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents AboutToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents tlsAboutApp As ToolStripMenuItem
     Friend WithEvents StatusStrip1 As StatusStrip
     Friend WithEvents pnlDesktop As Panel
     Friend WithEvents tlsAppExit As ToolStripMenuItem
@@ -261,5 +255,4 @@ Partial Class Form1
     Friend WithEvents ToolStripButton4 As ToolStripButton
     Friend WithEvents ToolStripLabel4 As ToolStripLabel
     Friend WithEvents tlsPersons As ToolStripMenuItem
-    Friend WithEvents ОПрограммеToolStripMenuItem As ToolStripMenuItem
 End Class
