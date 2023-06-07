@@ -4,6 +4,13 @@ Imports Declarations.Common
 Public Class ListPersonsForm
     Private _slcPerson As Person
 
+    Public Sub New()
+        ' This call is required by the designer.
+        InitializeComponent()
+        _slcPerson = Nothing
+
+    End Sub
+
     Public Property SlcPerson() As Person
         Get
             Return _slcPerson
@@ -15,12 +22,6 @@ Public Class ListPersonsForm
 
     Private personForm As PersonForm
 
-    Public Sub New()
-        ' This call is required by the designer.
-        InitializeComponent()
-        _slcPerson = Nothing
-
-    End Sub
 
 
 

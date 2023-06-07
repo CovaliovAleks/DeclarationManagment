@@ -13,10 +13,13 @@ Public Class Form1
     Dim strDBFileName As String
     Dim _dbService As DbService
     Dim activForm As ActiveFormEnum = ActiveFormEnum.NotSelected
+    Dim isAlreadyClosing As Boolean = False
 
     Public Sub New()
         ' This call is required by the designer.
         InitializeComponent()
+
+        Me.Text = "ИС налоговые декларации v0.7"
 
         'strDBFileName = "Db\Database2.accdb"
         strDBFileName = "C:\Db\Database2.accdb"
@@ -111,14 +114,17 @@ Public Class Form1
     Private Sub tlsAppExit_Click(sender As Object, e As EventArgs) Handles tlsAppExit.Click
         Dim dlgResult As DialogResult = MessageBox.Show("Желаете закрыть приложение?", "Окончание работы", MessageBoxButtons.YesNo)
         If dlgResult = DialogResult.Yes Then
+            isAlreadyClosing = True
             Close()
         End If
     End Sub
 
     Private Sub Form1_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        Dim dlgResult As DialogResult = MessageBox.Show("Желаете закрыть приложение?", "Окончание работы", MessageBoxButtons.YesNo)
-        If dlgResult = DialogResult.No Then
-            e.Cancel = True
+        If isAlreadyClosing = False Then
+            Dim dlgResult As DialogResult = MessageBox.Show("Желаете закрыть приложение?", "Окончание работы", MessageBoxButtons.YesNo)
+            If dlgResult = DialogResult.No Then
+                e.Cancel = True
+            End If
         End If
     End Sub
 End Class

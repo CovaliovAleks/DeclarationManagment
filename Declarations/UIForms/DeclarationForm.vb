@@ -3,6 +3,7 @@
 Public Class DeclarationForm
     Private declaration As Declaration
     Dim personId As Integer = 0
+    Dim personFio As String = ""
     Dim _person As Person
 
     Private listPersons As ListPersonsForm
@@ -30,23 +31,36 @@ Public Class DeclarationForm
     End Sub
 
     Private Sub DeclarationForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        mtbDateDeclaration.Text = DateTime.Today.ToString("dd.MM.yyyy")
+
     End Sub
 
     Private Sub ShowDeclarationData()
         If declaration.Person IsNot Nothing Then
             _person = declaration.Person
             personId = _person.ID
+            personFio = _person.FIO
         End If
 
 
         tbNrDeclaration.Text = declaration.NrDeclaration
-        mtbDateDeclaration.Text = declaration.DateCreatedAt
+        mtbDateDeclaration.Text = declaration.DateCreatedAt.ToString("dd.MM.yyyy")
         tbTaxNumber.Text = declaration.TaxNumber
         tbTaxDistrict.Text = declaration.TaxDistrict
         tbComments.Text = declaration.Comment
         tbPersonFio.Text = declaration.PersonFio
-        declaration.PersonId = personId
+
+        tbSumAll.Text = declaration.SummaAll
+        tbSumPens.Text = declaration.SummaPens
+        tbSumTax.Text = declaration.SummaTax
+        tbSumExempt.Text = declaration.SummaExempt
+        tbExemptType.Text = declaration.ExemptType
+        tbSumFinal.Text = declaration.SummaFinal
+
+        tbCompanyName.Text = declaration.CompanyName
+        tbCompanyPhone.Text = declaration.CompanyPhone
+        tbCompanyInn.Text = declaration.CompanyInn
+        tbCompanyAddress.Text = declaration.CompanyAddress
+        tbCompanyChief.Text = declaration.CompanyChief
 
     End Sub
 
@@ -75,10 +89,17 @@ Public Class DeclarationForm
     Private Sub btnAddDeclaration_Click(sender As Object, e As EventArgs) Handles btnAddDeclaration.Click
         Dim result As Boolean = False
 
-        declaration = New Declaration()
-        declaration.ID = 0
+        If state = 0 Then
+            declaration = New Declaration()
+            declaration.ID = 0
+        End If
+        Dim createdAt As Date = Date.MinValue
+        If Date.TryParse(mtbDateDeclaration.Text, createdAt) = True Then
+
+        End If
+
         declaration.NrDeclaration = Strings.Trim(tbNrDeclaration.Text)
-        declaration.DateCreatedAt = Date.Today 'Date.Parse(mtbDateDeclaration.Text)
+        declaration.DateCreatedAt = createdAt
         declaration.TaxNumber = Trim(tbTaxNumber.Text)
         declaration.TaxDistrict = Trim(tbTaxDistrict.Text)
         declaration.Comment = Trim(tbComments.Text)
@@ -123,7 +144,6 @@ Public Class DeclarationForm
                 result = _dbService.UpdateDeclaration(declaration)
             End If
 
-
             If (result = True) Then
                 Me.DialogResult = DialogResult.OK
             Else
@@ -143,12 +163,27 @@ Public Class DeclarationForm
 
         If String.IsNullOrEmpty(declaration.NrDeclaration) Then
             result = False
-            errMsg += "Декларации" + vbNewLine
+            errMsg += "Номер Декларации" + vbNewLine
+        End If
+
+        If String.IsNullOrEmpty(declaration.TaxNumber) Then
+            result = False
+            errMsg += "Номер налоговой инспекции" + vbNewLine
         End If
 
         If String.IsNullOrEmpty(declaration.TaxDistrict) Then
             result = False
-            errMsg += "Номер налоговой инспекции" + vbNewLine
+            errMsg += "Инспекция, где стоит на учете" + vbNewLine
+        End If
+
+        If String.IsNullOrEmpty(declaration.CompanyName) Then
+            result = False
+            errMsg += "Компания" + vbNewLine
+        End If
+
+        If String.IsNullOrEmpty(declaration.CompanyInn) Then
+            result = False
+            errMsg += "ИНН Компании" + vbNewLine
         End If
 
 

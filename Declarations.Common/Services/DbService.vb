@@ -26,42 +26,6 @@ Public Class DbService
         Return result
     End Function
 
-    Public Sub ReadingTable()
-        Dim result As Boolean = False
-        Dim strCreate As String = "SELECT * FROM testone;"
-
-        Try
-            dbConn = New OleDb.OleDbConnection(dbConnString)
-            dbConn.Open()
-
-            Using cmd As New OleDbCommand()
-                cmd.Connection = dbConn
-                cmd.CommandText = strCreate
-                Dim Reader = cmd.ExecuteReader()
-
-                Dim numCols = Reader.FieldCount
-                Dim hasRows = Reader.HasRows
-
-                While Reader.Read() = True
-                    Dim obj1 = Reader.GetValue(0)
-                    Dim obj2 = Reader.GetValue(1)
-                    Dim obj3 = Reader.GetValue(2)
-                    Dim obj4 = Reader.GetValue(3)
-                    Dim sss As String = ""
-                End While
-
-            End Using
-
-        Catch ex As Exception
-            Dim msg As String = ex.Message
-        Finally
-            dbConn.Close()
-        End Try
-
-    End Sub
-
-
-
     Public Sub AddRowInTable()
         Dim result As Boolean = False
         Dim strCreate As String = "INSERT INTO testone(FirstName,LastName) VALUES('frst name','sec name');"
@@ -186,8 +150,15 @@ Public Class DbService
                     item.SummaAll = reader.GetValue(8)
                     item.SummaTax = reader.GetValue(9)
                     item.SummaPens = reader.GetValue(10)
-                    item.ExemptType = reader.GetValue(10)
-                    item.SummaExempt = reader.GetValue(10)
+                    item.ExemptType = reader.GetValue(11)
+                    item.SummaExempt = reader.GetValue(12)
+                    item.SummaFinal = reader.GetValue(13)
+
+                    item.CompanyName = reader.GetValue(14)
+                    item.CompanyInn = reader.GetValue(15)
+                    item.CompanyAddress = reader.GetValue(16)
+                    item.CompanyChief = reader.GetValue(17)
+                    item.CompanyPhone = reader.GetValue(18)
 
                     lstDeclarations.Add(item)
 
@@ -252,15 +223,40 @@ Public Class DbService
 
         Return lstPerons
     End Function
-    Function UpdateDeclaration(ByRef declaration As Declaration) As Boolean
+    Function UpdateDeclaration(ByRef dcl As Declaration) As Boolean
         Dim qrResult As Boolean = False
         Dim query As String
-        query = "INSERT INTO Declaration(NumberTax,DateTax,TaxNumber, DistrictTax,Comment, 
-                        PersonId, PersonFIO, SumAll, SumTax, SumPension, ExemptType, Exempt, SumFinal,
-                        CompanyName, CompanyInn, CompanyAddress, CompanyChief, CompanyPhone)
-                VALUES(@declnum, @taxdate, @taxnumber, @taxdist, @comment,
-                        @persid, @persfio, @sumaall, @sumatax,@sumapens, @exempttype, @exempt, @sumfinal,
-                        @cmpname, @cmpinn, @cmpaddress, @cmpchief, @cmpphone);"
+        query = "UPDATE Declaration SET NumberTax='" + dcl.NrDeclaration + "',TaxNumber='" + dcl.TaxNumber + "'" +
+            ",DistrictTax='" + dcl.TaxDistrict + "',Comment='" + dcl.Comment + "',CompanyName='" + dcl.CompanyName + "'" +
+            ",CompanyInn='" + dcl.CompanyInn + "', DateTax='" + dcl.DateCreatedAt + "'" +
+            ",SumAll=" + dcl.SummaAll.ToString() + ", SumTax=" + dcl.SummaPens.ToString() + "" +
+            ",ExemptType='" + dcl.ExemptType + "', Exempt=" + dcl.SummaExempt.ToString() + "" +
+            ",SumFinal=" + dcl.SummaFinal.ToString() + ", SumPension=" + dcl.SummaPens.ToString() + " " +
+            ",CompanyAddress='" + dcl.CompanyAddress + "',CompanyChief='" + dcl.CompanyChief + "',CompanyPhone='" + dcl.CompanyPhone + "'" +
+            " WHERE ID = " + dcl.ID.ToString() + "; "
+
+        Try
+            dbConn = New OleDb.OleDbConnection(dbConnString)
+            dbConn.Open()
+
+            Using cmd As New OleDbCommand()
+                cmd.Connection = dbConn
+                cmd.CommandType = CommandType.Text
+                cmd.CommandText = query
+                Try
+                    cmd.ExecuteNonQuery()
+                    Console.WriteLine("Inserted.")
+                    qrResult = True
+                Catch ex As Exception
+                    Console.WriteLine(ex.Message)
+                End Try
+            End Using
+
+        Catch ex As Exception
+            Dim msg As String = ex.Message
+        Finally
+            dbConn.Close()
+        End Try
 
         Return qrResult
     End Function
@@ -300,11 +296,11 @@ Public Class DbService
                     cmd.Parameters.AddWithValue("@exempt", declaration.SummaExempt)
                     cmd.Parameters.AddWithValue("@sumfinal", declaration.SummaFinal)
 
-                    cmd.Parameters.AddWithValue("@cmpname", "")
-                    cmd.Parameters.AddWithValue("@cmpinn", "")
-                    cmd.Parameters.AddWithValue("@cmpaddress", "")
-                    cmd.Parameters.AddWithValue("@cmpchief", "")
-                    cmd.Parameters.AddWithValue("@cmpphone", "")
+                    cmd.Parameters.AddWithValue("@cmpname", declaration.CompanyName)
+                    cmd.Parameters.AddWithValue("@cmpinn", declaration.CompanyInn)
+                    cmd.Parameters.AddWithValue("@cmpaddress", declaration.CompanyAddress)
+                    cmd.Parameters.AddWithValue("@cmpchief", declaration.CompanyChief)
+                    cmd.Parameters.AddWithValue("@cmpphone", declaration.CompanyPhone)
 
                     cmd.ExecuteNonQuery()
                     Console.WriteLine("Inserted.")
