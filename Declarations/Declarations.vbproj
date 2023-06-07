@@ -197,6 +197,9 @@
     <Content Include="Db\Database2.accdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\list.png" />
+    <None Include="Resources\add.png" />
+    <None Include="Resources\Image1.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">

@@ -19,10 +19,10 @@ Public Class Form1
         ' This call is required by the designer.
         InitializeComponent()
 
-        Me.Text = "ИС налоговые декларации v0.7"
+        Me.Text = "ИС налоговые декларации v0.9"
 
-        'strDBFileName = "Db\Database2.accdb"
-        strDBFileName = "C:\Db\Database2.accdb"
+        strDBFileName = "Db\Database2.accdb"
+        'strDBFileName = "C:\Db\Database2.accdb"
         connStr = "Data Source=" & strDBFileName & ";User ID=Admin;Provider=Microsoft.ACE.OLEDB.12.0;OLE DB Services=-1"
         _dbService = New DbService(connStr)
         '_dbService.DropTable()
@@ -125,6 +125,49 @@ Public Class Form1
             If dlgResult = DialogResult.No Then
                 e.Cancel = True
             End If
+        End If
+    End Sub
+
+    Private Sub ToolStripButton3_Click(sender As Object, e As EventArgs) Handles ToolStripButton3.Click
+        If declarationForm Is Nothing Then
+            declarationForm = New DeclarationForm(_dbService, Nothing)
+        End If
+
+        Dim dlgResult As DialogResult = declarationForm.ShowDialog()
+        If dlgResult = DialogResult.OK Then
+            declarationsForm.ResfreshDataGrid()
+        End If
+    End Sub
+
+    Private Sub ToolStripButton4_Click(sender As Object, e As EventArgs) Handles ToolStripButton4.Click
+        If personForm Is Nothing Then
+            personForm = New PersonForm(_dbService, Nothing)
+        End If
+
+        Dim dlgResult As DialogResult = personForm.ShowDialog()
+        If dlgResult = DialogResult.OK Then
+            'declarationsForm.ResfreshDataGrid()
+        End If
+
+    End Sub
+
+    Private Sub ToolStripButton1_Click(sender As Object, e As EventArgs) Handles ToolStripButton1.Click
+        If activForm <> ActiveFormEnum.Declarations Then
+            activForm = ActiveFormEnum.Declarations
+            If declarationsForm Is Nothing Then
+                declarationsForm = New DeclarationsForm(_dbService)
+            End If
+            LoadForm(declarationsForm)
+        End If
+    End Sub
+
+    Private Sub ToolStripButton2_Click(sender As Object, e As EventArgs) Handles ToolStripButton2.Click
+        If activForm <> ActiveFormEnum.Persons Then
+            activForm = ActiveFormEnum.Persons
+            If personsForm Is Nothing Then
+                personsForm = New PersonsForm(_dbService)
+            End If
+            LoadForm(personsForm)
         End If
     End Sub
 End Class

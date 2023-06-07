@@ -77,13 +77,15 @@ Public Class PersonsForm
 
         If Not String.IsNullOrEmpty(fltr) Then
             Dim queryResults = From prs In lstPersons
-                               Where prs.FirstName.Contains(fltr)
+                               Where prs.FirstName.Contains(fltr) Or
+                                     prs.SurName.Contains(fltr) Or
+                                     prs.Patronymic.Contains(fltr) Or
+                                     prs.Street.Contains(fltr) Or
+                                     prs.INN.Contains(fltr)
             dgvPerson.DataSource = queryResults.ToList
         Else
             dgvPerson.DataSource = lstPersons
         End If
-
-
 
     End Sub
 End Class

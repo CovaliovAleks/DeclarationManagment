@@ -42,4 +42,21 @@ Public Class DeclarationsForm
 
 
     End Sub
+
+    Private Sub btnSetFilter_Click(sender As Object, e As EventArgs) Handles btnSetFilter.Click
+        Dim fltr As String = Trim(tbAddDataFiltr.Text)
+
+        If Not String.IsNullOrEmpty(fltr) Then
+            Dim queryResults = From dcl In lstDeclarations
+                               Where dcl.PersonFio.Contains(fltr) Or
+                                     dcl.CompanyInn.Contains(fltr) Or
+                                     dcl.NrDeclaration.Contains(fltr) Or
+                                     dcl.TaxNumber.Contains(fltr) Or
+                                     dcl.TaxDistrict.Contains(fltr)
+            dgvDeclarations.DataSource = queryResults.ToList
+        Else
+            dgvDeclarations.DataSource = lstDeclarations
+        End If
+
+    End Sub
 End Class

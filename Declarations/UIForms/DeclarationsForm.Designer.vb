@@ -31,10 +31,6 @@ Partial Class DeclarationsForm
         Me.tbAddDataFiltr = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.tbTaxDistrict = New System.Windows.Forms.TextBox()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.tbTaxNumber = New System.Windows.Forms.TextBox()
-        Me.Label9 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.dgvDeclarations = New System.Windows.Forms.DataGridView()
         Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -45,7 +41,6 @@ Partial Class DeclarationsForm
         Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.grbFilters.SuspendLayout()
-        Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.dgvDeclarations, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -127,54 +122,13 @@ Partial Class DeclarationsForm
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.tbTaxDistrict)
-        Me.GroupBox1.Controls.Add(Me.Label11)
-        Me.GroupBox1.Controls.Add(Me.tbTaxNumber)
-        Me.GroupBox1.Controls.Add(Me.Label9)
         Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox1.Location = New System.Drawing.Point(0, 543)
+        Me.GroupBox1.Location = New System.Drawing.Point(0, 616)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(982, 90)
+        Me.GroupBox1.Size = New System.Drawing.Size(982, 17)
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Доп данные по декларации"
-        '
-        'tbTaxDistrict
-        '
-        Me.tbTaxDistrict.Location = New System.Drawing.Point(267, 50)
-        Me.tbTaxDistrict.MaxLength = 100
-        Me.tbTaxDistrict.Name = "tbTaxDistrict"
-        Me.tbTaxDistrict.ReadOnly = True
-        Me.tbTaxDistrict.Size = New System.Drawing.Size(269, 27)
-        Me.tbTaxDistrict.TabIndex = 23
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(267, 24)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(269, 20)
-        Me.Label11.TabIndex = 22
-        Me.Label11.Text = "Инспекция, где стоит на учете"
-        '
-        'tbTaxNumber
-        '
-        Me.tbTaxNumber.Location = New System.Drawing.Point(7, 51)
-        Me.tbTaxNumber.MaxLength = 4
-        Me.tbTaxNumber.Name = "tbTaxNumber"
-        Me.tbTaxNumber.ReadOnly = True
-        Me.tbTaxNumber.Size = New System.Drawing.Size(252, 27)
-        Me.tbTaxNumber.TabIndex = 21
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(9, 26)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(250, 20)
-        Me.Label9.TabIndex = 20
-        Me.Label9.Text = "Номер налоговой инспекции"
         '
         'GroupBox2
         '
@@ -182,7 +136,7 @@ Partial Class DeclarationsForm
         Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox2.Location = New System.Drawing.Point(0, 85)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(982, 458)
+        Me.GroupBox2.Size = New System.Drawing.Size(982, 531)
         Me.GroupBox2.TabIndex = 3
         Me.GroupBox2.TabStop = False
         '
@@ -200,7 +154,7 @@ Partial Class DeclarationsForm
         Me.dgvDeclarations.RowHeadersWidth = 51
         Me.dgvDeclarations.RowTemplate.Height = 24
         Me.dgvDeclarations.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvDeclarations.Size = New System.Drawing.Size(976, 437)
+        Me.dgvDeclarations.Size = New System.Drawing.Size(976, 510)
         Me.dgvDeclarations.TabIndex = 0
         '
         'Column7
@@ -280,8 +234,6 @@ Partial Class DeclarationsForm
         Me.Text = "DeclarationsForm"
         Me.grbFilters.ResumeLayout(False)
         Me.grbFilters.PerformLayout()
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         CType(Me.dgvDeclarations, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -298,10 +250,6 @@ Partial Class DeclarationsForm
     Friend WithEvents Label2 As Label
     Friend WithEvents mtbDeclarationTo As MaskedTextBox
     Friend WithEvents mtbDeclarationFrom As MaskedTextBox
-    Friend WithEvents tbTaxNumber As TextBox
-    Friend WithEvents Label9 As Label
-    Friend WithEvents tbTaxDistrict As TextBox
-    Friend WithEvents Label11 As Label
     Friend WithEvents Column7 As DataGridViewTextBoxColumn
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Column6 As DataGridViewTextBoxColumn
