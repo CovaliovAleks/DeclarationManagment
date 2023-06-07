@@ -1,7 +1,6 @@
 ﻿Imports Declarations.Common
 
 Public Class PersonsForm
-    Dim _prTable As DataTable
     Dim _dbService As DbService
     Dim _person As Person
     Dim lstPersons As List(Of Person)
@@ -17,8 +16,6 @@ Public Class PersonsForm
         dgvPerson.AllowUserToAddRows = False
     End Sub
     Private Sub PersonsForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        '_prTable = _dbService.GetPersonTable()
-        'dgvPerson.DataSource = _prTable
         lstPersons = _dbService.GetPersons()
         dgvPerson.DataSource = lstPersons
     End Sub

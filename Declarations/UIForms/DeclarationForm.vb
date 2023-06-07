@@ -4,7 +4,7 @@ Public Class DeclarationForm
     Private declaration As Declaration
     Dim personId As Integer = 0
     Dim personFio As String = ""
-    Dim _person As Person
+    Dim _person As Person = Nothing
 
     Private listPersons As ListPersonsForm
     Dim _dbService As DbService
@@ -66,19 +66,24 @@ Public Class DeclarationForm
 
     Private Sub btnSelectPerson_Click(sender As Object, e As EventArgs) Handles btnSelectPerson.Click
         If (listPersons Is Nothing) Then
-            listPersons = New ListPersonsForm()
+            listPersons = New ListPersonsForm(_dbService)
         End If
 
         Dim dlgresult As DialogResult = listPersons.ShowDialog()
 
-        If dlgresult = DialogResult.Yes Then
-
-
+        If dlgresult = DialogResult.OK Then
+            _person = listPersons.GetPerson
         ElseIf dlgresult = DialogResult.Cancel Then
-
 
         End If
 
+        If _person IsNot Nothing Then
+            personId = _person.ID
+            personFio = _person.FIO
+            tbPersonFio.Text = _person.FIO
+        End If
+
+        'listPersons.Dispose()
     End Sub
 
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
@@ -105,7 +110,7 @@ Public Class DeclarationForm
         declaration.Comment = Trim(tbComments.Text)
         'Need to get from obj person
         declaration.PersonFio = Trim(tbPersonFio.Text)
-        declaration.PersonId = 0
+        declaration.PersonId = declaration.PersonId
 
         Dim sumAll As Double = 0
         Dim sumTax As Double = 0
@@ -190,5 +195,12 @@ Public Class DeclarationForm
         Return result
     End Function
 
-
+    Private Sub btnClearPerson_Click(sender As Object, e As EventArgs) Handles btnClearPerson.Click
+        If _person IsNot Nothing Then
+            _person = Nothing
+        End If
+        declaration.PersonId = 0
+        declaration.PersonFio = ""
+        tbPersonFio.Text = ""
+    End Sub
 End Class

@@ -24,13 +24,17 @@ Partial Class ListPersonsForm
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.btnCreateNew = New System.Windows.Forms.Button()
+        Me.btnSelect = New System.Windows.Forms.Button()
+        Me.btnCancel = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.dgvPersons = New System.Windows.Forms.DataGridView()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.btnSelect = New System.Windows.Forms.Button()
-        Me.btnCreateNew = New System.Windows.Forms.Button()
+        Me.tbFiltrText = New System.Windows.Forms.TextBox()
+        Me.btnFiltrRun = New System.Windows.Forms.Button()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         CType(Me.dgvPersons, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -38,6 +42,8 @@ Partial Class ListPersonsForm
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.btnFiltrRun)
+        Me.GroupBox1.Controls.Add(Me.tbFiltrText)
         Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Top
         Me.GroupBox1.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox1.Name = "GroupBox1"
@@ -50,13 +56,43 @@ Partial Class ListPersonsForm
         '
         Me.GroupBox2.Controls.Add(Me.btnCreateNew)
         Me.GroupBox2.Controls.Add(Me.btnSelect)
-        Me.GroupBox2.Controls.Add(Me.Button1)
+        Me.GroupBox2.Controls.Add(Me.btnCancel)
         Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.GroupBox2.Location = New System.Drawing.Point(0, 578)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(704, 65)
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
+        '
+        'btnCreateNew
+        '
+        Me.btnCreateNew.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCreateNew.Location = New System.Drawing.Point(137, 19)
+        Me.btnCreateNew.Name = "btnCreateNew"
+        Me.btnCreateNew.Size = New System.Drawing.Size(109, 36)
+        Me.btnCreateNew.TabIndex = 2
+        Me.btnCreateNew.Text = "Добавить"
+        Me.btnCreateNew.UseVisualStyleBackColor = True
+        '
+        'btnSelect
+        '
+        Me.btnSelect.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSelect.Location = New System.Drawing.Point(12, 19)
+        Me.btnSelect.Name = "btnSelect"
+        Me.btnSelect.Size = New System.Drawing.Size(109, 36)
+        Me.btnSelect.TabIndex = 1
+        Me.btnSelect.Text = "Выбрать"
+        Me.btnSelect.UseVisualStyleBackColor = True
+        '
+        'btnCancel
+        '
+        Me.btnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCancel.Location = New System.Drawing.Point(604, 19)
+        Me.btnCancel.Name = "btnCancel"
+        Me.btnCancel.Size = New System.Drawing.Size(88, 36)
+        Me.btnCancel.TabIndex = 0
+        Me.btnCancel.Text = "Отмена"
+        Me.btnCancel.UseVisualStyleBackColor = True
         '
         'GroupBox3
         '
@@ -71,56 +107,65 @@ Partial Class ListPersonsForm
         '
         'dgvPersons
         '
+        Me.dgvPersons.AllowUserToAddRows = False
+        Me.dgvPersons.AllowUserToDeleteRows = False
         Me.dgvPersons.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvPersons.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2})
+        Me.dgvPersons.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column3, Me.Column2})
         Me.dgvPersons.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgvPersons.Location = New System.Drawing.Point(3, 18)
+        Me.dgvPersons.MultiSelect = False
         Me.dgvPersons.Name = "dgvPersons"
+        Me.dgvPersons.ReadOnly = True
         Me.dgvPersons.RowHeadersWidth = 51
         Me.dgvPersons.RowTemplate.Height = 24
+        Me.dgvPersons.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvPersons.Size = New System.Drawing.Size(698, 484)
         Me.dgvPersons.TabIndex = 0
         '
-        'Button1
+        'tbFiltrText
         '
-        Me.Button1.Location = New System.Drawing.Point(604, 19)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(88, 36)
-        Me.Button1.TabIndex = 0
-        Me.Button1.Text = "Отмена"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.tbFiltrText.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbFiltrText.Location = New System.Drawing.Point(12, 34)
+        Me.tbFiltrText.Name = "tbFiltrText"
+        Me.tbFiltrText.Size = New System.Drawing.Size(409, 27)
+        Me.tbFiltrText.TabIndex = 0
         '
-        'btnSelect
+        'btnFiltrRun
         '
-        Me.btnSelect.Location = New System.Drawing.Point(12, 19)
-        Me.btnSelect.Name = "btnSelect"
-        Me.btnSelect.Size = New System.Drawing.Size(109, 36)
-        Me.btnSelect.TabIndex = 1
-        Me.btnSelect.Text = "Выбрать"
-        Me.btnSelect.UseVisualStyleBackColor = True
-        '
-        'btnCreateNew
-        '
-        Me.btnCreateNew.Location = New System.Drawing.Point(137, 19)
-        Me.btnCreateNew.Name = "btnCreateNew"
-        Me.btnCreateNew.Size = New System.Drawing.Size(109, 36)
-        Me.btnCreateNew.TabIndex = 2
-        Me.btnCreateNew.Text = "Добавить"
-        Me.btnCreateNew.UseVisualStyleBackColor = True
+        Me.btnFiltrRun.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnFiltrRun.Location = New System.Drawing.Point(434, 28)
+        Me.btnFiltrRun.Name = "btnFiltrRun"
+        Me.btnFiltrRun.Size = New System.Drawing.Size(150, 36)
+        Me.btnFiltrRun.TabIndex = 1
+        Me.btnFiltrRun.Text = "Фильтровать"
+        Me.btnFiltrRun.UseVisualStyleBackColor = True
         '
         'Column1
         '
+        Me.Column1.DataPropertyName = "ID"
         Me.Column1.HeaderText = "Id"
         Me.Column1.MinimumWidth = 6
         Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
         Me.Column1.Visible = False
         Me.Column1.Width = 125
         '
+        'Column3
+        '
+        Me.Column3.DataPropertyName = "INN"
+        Me.Column3.HeaderText = "ИНН"
+        Me.Column3.MinimumWidth = 6
+        Me.Column3.Name = "Column3"
+        Me.Column3.ReadOnly = True
+        Me.Column3.Width = 125
+        '
         'Column2
         '
+        Me.Column2.DataPropertyName = "FIO"
         Me.Column2.HeaderText = "ФИО"
         Me.Column2.MinimumWidth = 6
         Me.Column2.Name = "Column2"
+        Me.Column2.ReadOnly = True
         Me.Column2.Width = 300
         '
         'ListPersonsForm
@@ -133,6 +178,8 @@ Partial Class ListPersonsForm
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "ListPersonsForm"
         Me.Text = "ListPersonsForm"
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox3.ResumeLayout(False)
         CType(Me.dgvPersons, System.ComponentModel.ISupportInitialize).EndInit()
@@ -145,8 +192,11 @@ Partial Class ListPersonsForm
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents dgvPersons As DataGridView
     Friend WithEvents btnSelect As Button
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btnCancel As Button
     Friend WithEvents btnCreateNew As Button
+    Friend WithEvents btnFiltrRun As Button
+    Friend WithEvents tbFiltrText As TextBox
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
+    Friend WithEvents Column3 As DataGridViewTextBoxColumn
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
 End Class

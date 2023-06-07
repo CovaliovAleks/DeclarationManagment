@@ -29,11 +29,11 @@ Public Class DeclarationsForm
     End Sub
 
     Private Sub dgvDeclarations_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles dgvDeclarations.MouseDoubleClick
-        Dim crRow = dgvDeclarations.CurrentRow
-        Dim rwIndex = dgvDeclarations.CurrentRow.Index
-        Dim row = dgvDeclarations.Rows(rwIndex)
-        Dim obj = dgvDeclarations.SelectedRows(0).DataBoundItem
+        'Dim crRow = dgvDeclarations.CurrentRow
+        'Dim rwIndex = dgvDeclarations.CurrentRow.Index
+        'Dim row = dgvDeclarations.Rows(rwIndex)
 
+        Dim obj = dgvDeclarations.SelectedRows(0).DataBoundItem
         _declarationForm = New DeclarationForm(_dbService, obj)
         Dim dlgResult As DialogResult = _declarationForm.ShowDialog()
 

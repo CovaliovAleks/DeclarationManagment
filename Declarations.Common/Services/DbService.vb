@@ -124,7 +124,10 @@ Public Class DbService
         Dim lstDeclarations As New List(Of Declaration)
         Dim query As String
 
-        query = "SELECT * FROM Declaration"
+        'query = "SELECT * FROM Declaration"
+        query = "SELECT Declaration.*, person.* FROM Declaration 
+                    LEFT JOIN person ON person.ID = Declaration.PersonId;"
+
         Try
             dbConn = New OleDb.OleDbConnection(dbConnString)
             dbConn.Open()
@@ -159,6 +162,19 @@ Public Class DbService
                     item.CompanyAddress = reader.GetValue(16)
                     item.CompanyChief = reader.GetValue(17)
                     item.CompanyPhone = reader.GetValue(18)
+
+
+                    If Not reader.IsDBNull(19) Then
+                        item.PersonId = reader.GetValue(19)
+                    End If
+
+                    If Not reader.IsDBNull(21) Then
+                        item.PersonFio = reader.GetValue(21)
+                    End If
+
+                    If Not reader.IsDBNull(22) Then
+                        item.PersonFio += " " + reader.GetValue(22)
+                    End If
 
                     lstDeclarations.Add(item)
 
@@ -229,10 +245,12 @@ Public Class DbService
         query = "UPDATE Declaration SET NumberTax='" + dcl.NrDeclaration + "',TaxNumber='" + dcl.TaxNumber + "'" +
             ",DistrictTax='" + dcl.TaxDistrict + "',Comment='" + dcl.Comment + "',CompanyName='" + dcl.CompanyName + "'" +
             ",CompanyInn='" + dcl.CompanyInn + "', DateTax='" + dcl.DateCreatedAt + "'" +
-            ",SumAll=" + dcl.SummaAll.ToString() + ", SumTax=" + dcl.SummaPens.ToString() + "" +
-            ",ExemptType='" + dcl.ExemptType + "', Exempt=" + dcl.SummaExempt.ToString() + "" +
-            ",SumFinal=" + dcl.SummaFinal.ToString() + ", SumPension=" + dcl.SummaPens.ToString() + " " +
-            ",CompanyAddress='" + dcl.CompanyAddress + "',CompanyChief='" + dcl.CompanyChief + "',CompanyPhone='" + dcl.CompanyPhone + "'" +
+            ",SumAll=" + dcl.SummaAll.ToString() + ", SumTax=" + dcl.SummaPens.ToString() +
+            ",ExemptType='" + dcl.ExemptType + "', Exempt=" + dcl.SummaExempt.ToString() +
+            ",SumFinal=" + dcl.SummaFinal.ToString() + ", SumPension=" + dcl.SummaPens.ToString() +
+            ",CompanyAddress='" + dcl.CompanyAddress + "',CompanyChief='" + dcl.CompanyChief +
+            "',CompanyPhone='" + dcl.CompanyPhone + "', PersonId=" + dcl.PersonId.ToString() +
+            ", PersonFio = '" + dcl.PersonFio + "' " +
             " WHERE ID = " + dcl.ID.ToString() + "; "
 
         Try
